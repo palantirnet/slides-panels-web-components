@@ -6,3 +6,4 @@ node_modules/
 .sass-cache
 /nbproject/private/
 .idea
+index.old.html
