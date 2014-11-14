@@ -138,9 +138,19 @@
             <p>Senior Engineer and Team Lead at <a href="http://palantir.net/">Palantir.net</a></p>
             <p><a href="http://twitter.com/stevector">@stevector</a> on Twitter</p>
           </section>
+
+          <section>
+            <h2>“The future is already here – it's just not evenly distributed.”</h2>
+            <p><a href="http://en.wikipedia.org/wiki/William_Gibson">William Gibson</a></p>
+            <aside class="notes"><p>The presentation is given from a Drupal/Palantir/Steve Persch perspective. Many of the techniques I'll call "future" are already being used successfully inside and outside of Drupal. Many of the techiques I'll call "past" are still here now and will remain for years to come.</p> 
+            </aside>
+
+          </section>
+
+
         </section>
 
-<!--- @todo caveat about the future not being evenly distributed -->
+<!--- @todo theme_item_list / theme_node dichtomy  look at hook_theme-->
 
         <section id="past">
 
@@ -255,17 +265,40 @@
 
 
         <section id="present">
-
-
           
           <section>
             <h1>The PRESENT</h1>
           </section>
 
+          <section>
+            <h2>The Drupal 7 theme system is complex</h2>
+            <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
+            <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
+          </section>
 
           <section>
-            <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
-            <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Thanks John</a></small></p>
+            <h2>Modifying markup with tools from Core</h2>
+            <ul>
+              <li class="fragment">Preprocess in modules and themes</li>
+              <li class="fragment">Process in modules and themes</li>
+              <li class="fragment">theme hook suggestions for theme functions and templates</li>
+              <li class="fragment">Field Formatters</li>
+              <li class="fragment">hook_field_extra_fields</li>
+              <li class="fragment">Writing new theme functions</li>
+              <li class="fragment">Render arrays</li>
+              <li class="fragment">hook_node_load</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>And then there's Contrib</h2>
+            <ul>
+              <li class="fragment">Panels, Page Manager, Panels Everywhere, Mini Panels, Panelizer</li>
+              <li class="fragment">Display Suite layouts</li>
+              <li class="fragment">Views Display plugins</li>
+              <li class="fragment">Suppress unwanted divs with Fences</li>
+              <li class="fragment">Add View Modes</li>
+            </ul>
           </section>
 
           <section>
@@ -278,6 +311,30 @@
             <img src="assets/mouse-trap.jpg" alt="The board game Mouse Trap" />
           </section>
 
+
+          <section>
+            <h1>WHAT ARE WE DOING?</h1>
+            <h3>The "Sustainable Theming" mentality relies on the "themer" knowing how the theme system works.</h3>
+          </section>
+
+          <section>
+            <h2>How many people know how this works?</h2>
+            <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
+            <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
+          </section>
+
+          <section>
+            <h1>Back to the Givens!</h1>
+          </section>
+
+          <section>
+            <h1>GIVEN <small>(NOW)</small></h1>
+            <h2>The client wants a RESPONSIVE site</h2>
+            <h3>The designers must do some work in CSS</h3>
+            <aside class="notes"><p></p> 
+            </aside>
+          </section>
+
           <section>
             <h2>Responsive</h2>
             <img src="assets/PRI_6.jpg" alt="The Public Radio International site shown on different devices" />
@@ -287,22 +344,67 @@
             </aside>
           </section>
 
+          <section>
+            <h1>GIVEN <small>(NOW)</small></h1>
+            <h2>The designs are in HTML/CSS</h2>
+            <h3>We no longer want Drupal's HTML and CSS. We already have some.</h3>
+            <aside class="notes"><p>This given starts flips the mindset of the past. When the canonical designs are HTML/CSS, why would you rewrite the code for Drupal?</p> 
+            </aside>
+          </section>
+
+          <section>
+            <h1>GIVEN <small>(NOW)</small></h1>
+            <h2>Our designers think in Design Components</h2>
+            <h3>Our job is now to make Drupal print those Design Components</h3>
+            <aside class="notes"><p></p> 
+            </aside>
+          </section>
 
 
           <section>
-            <h2>Modifying markup with tools from core</h2>
+            <h2>How do you map Design Components to Drupal?</h2> @todo Show before after markup
             <ul>
-              <li class="fragment">Preprocess in modules and themes</li>
-              <li class="fragment">Process in modules and themes</li>
-              <li class="fragment">theme hook suggestions for theme functions and templates</li>
-              <li class="fragment">Field Formatters</li>
-              <li class="fragment">hook_field_extra_fields</li>
-              <li class="fragment">Writing new theme functions</li>
-              <li class="fragment">Render arrays</li>
-              <li class="fragment">hook_node_load</li>
+              <li class="fragment">Panels, Page Manager, Panels Everywhere, Mini Panels, Panelizer</li>
+              <li class="fragment">Display Suite layouts</li>
+              <li class="fragment">Views Display plugins</li>
+              <li class="fragment">Suppress unwanted divs with Fences</li>
+              <li class="fragment">Add View Modes</li>
+            </ul>
+          </section>
+
+
+
+
+          <section>
+            <h2>Modifying markup with tools beyond core</h2>
+            <ul>
+              <li class="fragment">Define ideal markup in a style guide / prototype</li>
+              <li class="fragment">Map design objects to Panels layout and style plugins</li>
+              <li class="fragment">Display Suite layouts</li>
+              <li class="fragment">Views Display plugins</li>
+              <li class="fragment">Suppress unwanted divs with Fences</li>
+              <li class="fragment">Add View Modes</li>
+            </ul>
+          </section>
+
+
+
+
+          <section>
+            <h2>Panels is our go-to tool for mapping Design Components</h2>
+            <ul>
+              <li class="fragment">Define ideal markup in a style guide / prototype</li>
+              <li class="fragment">Map design objects to Panels layout and style plugins</li>
+              <li class="fragment">Display Suite layouts</li>
+              <li class="fragment">Views Display plugins</li>
+              <li class="fragment">Suppress unwanted divs with Fences</li>
+              <li class="fragment">Add View Modes</li>
             </ul>
           </section>
         </section>
+
+
+
 
 
         <section id="present">
