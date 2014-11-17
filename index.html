@@ -166,10 +166,18 @@
           <section>
             <h1>GIVEN <small>(in D5 era)</small></h1>
             <h2>Your designs are JPGs</h2>
-            <h3>Doing anything in Drupal gives you a ton of HTML</h3>
+            <h3>And doing anything in Drupal gives you a ton of HTML</h3>
             <aside class="notes"><p>In the modern/future era of static prototyping your "designs" might make a ton of CSS class name and markup for you and your CMS might not make any suggestion about HTML and class names. In the PAST that was totally reversed.</p> 
             </aside>
           </section>
+
+          <section>
+            <h2>Core names CSS classes by internal data structures</h2>
+            <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
+            <aside class="notes">
+            </aside>This image shows an example of Drupal 7 markup. 
+          </section>
+
 
           <section>
             <h1>GIVEN <small>(in D5 era)</small></h1>
@@ -192,7 +200,7 @@
 
 
 
-
+<!-- @todo, "What are we doing". Use the Colbert image here. Our job in this mentality is to make the Drupal markup Look Like the Designs  -->
 
 
 <!---
@@ -236,13 +244,6 @@
               <small>exposes each </small/><br>internal data model layer<br> <small>as a </small>
 <br>
               wrapping HTML element.</h2>
-          </section>
-
-          <section>
-            <h2>Core names CSS classes by internal data structures</h2>
-            <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
-            <aside class="notes">
-            </aside>
           </section>
 
           <section>
@@ -323,6 +324,11 @@
             <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
           </section>
 
+
+<!-- In chasing easy, we completely lost simple. And as simple got lost, so did easy. -->
+
+<!-- use theme(node) vs theme(item_list) example. -->
+
 <!-- @todo, work in the simple vs easy dynamic -->
 
 
@@ -363,7 +369,6 @@
             </aside>
           </section>
 
-
           <section>
             <h2>How do you map Design Components to Drupal?</h2> @todo Show before after markup
             <ul>
@@ -402,8 +407,6 @@
 
 
 
-
-
         <section id="present">
 
           <section>
@@ -436,11 +439,11 @@
 
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
-            <h3>Headless, Headless, Headless, Headless, 
+            <h3>
               Headless, Headless, Headless, Headless, 
-
-Headless, Headless, Headless, Headless.              
-              </h3>
+              Headless, Headless, Headless, Headless, 
+              Headless, Headless, Headless, Headless.              
+            </h3>
               <p>In the session description I promised a dozen references to Headless Drupal</p> 
             <aside class="notes"><p></p> 
             </aside>
@@ -469,7 +472,7 @@ Headless, Headless, Headless, Headless.
               <li class="fragment">Data Binding</li>
               <li class="fragment">Encapsulation, Encapsulation, Encapsulation</li>
               <li class="fragment">Cleaner Exension</li>
-              <li class="fragment">You can imagine a Front End Developer on a Drupal project not knowing PHP</li>
+              <li class="fragment"></li>
            </ul>
             <aside class="notes"><p>Angular, Ember, Polymer and countless others expect to be given a model to which they can bind.</p> 
             </aside>
@@ -482,6 +485,7 @@ Headless, Headless, Headless, Headless.
           <section>
             <h2>You are moving to the future when...</h2>
             <ul>
+              <li class="fragment">You can explain where you draw lines between data and presentation</li>
               <li class="fragment">You name your Design Components independent of Drupal</li>
               <li class="fragment">Your templates and functions are named after Design Components, not Drupal data structures</li>
               <li class="fragment">You can make changes to front end code used by Drupal (CSS, templates, JS) outside of your Drupal
