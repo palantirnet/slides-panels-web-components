@@ -819,9 +819,14 @@ Why are we still forking our CSS?
             We're still TRYING on the markup.</p> 
             </aside>
           </section>
+
+    
+          <section>
+            <img src="assets/doordonot.jpg" alt="Do or Do Not. There Is No Try" />
+          </section>        
+
         </section>
 
-    </section>
 
 
 
@@ -838,10 +843,6 @@ Why are we still forking our CSS?
             <h2>Clear Decoupling</h2>
           </section>
 
-<!-- @todo, the unresolved tension of theme() -->
-
-
-
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
             <h3>
@@ -851,6 +852,68 @@ Why are we still forking our CSS?
             </h3>
               <p>In the session description I promised a dozen references to Headless Drupal</p> 
             <aside class="notes"><p></p> 
+            </aside>
+          </section>
+
+
+
+          <section>
+          <h2>Horseman is calling<br> Drupal out</h2>
+            <blockquote>
+In Drupal today, we have a tendency to conflate our data and our controllers which makes it an absolute mess for front-end developers to reliably get the output they'd like without at least intermediate PHP skills and a full PHP debugger.
+</blockquote>
+            <p><small><a href="https://github.com/davidhwang/horseman/blob/master/dogfooding.md">And on GitHub</a></small></p>
+          </section>
+
+
+
+        <section>
+            <h2>If you want to make a Headless Horseman,<br> you need to know where the neck is.</h2>
+            <table>
+            
+            
+            <tr>
+
+
+         <td>Before <code>theme()</code>?
+
+</td>
+
+         <td>After <code>theme()</code>?
+
+</td>
+</tr>
+            
+            
+            
+            <tr>
+
+
+
+              <td>
+                        <pre><code class="php" data-trim>
+$vars['title'] = 'Grocery List';
+$vars['items'] = array(
+  'Fruit',
+  'Bread',
+  'Cheese',
+  'Meat',
+);
+print theme('item_list', $vars);
+</code></pre>
+</td>
+
+<td>
+            <pre><code class="php" data-trim>
+$node = node_load(123);
+theme('node', $node);</code></pre>
+</td>
+</tr></table>
+            <aside class="notes">
+            <p>An item list is a Design Component.<br>
+            A node is not.<br>
+            At least not specific enough for most any public facing project.
+            </p> 
             </aside>
           </section>
 
