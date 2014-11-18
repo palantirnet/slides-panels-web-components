@@ -843,6 +843,13 @@ Why are we still forking our CSS?
             <h2>Clear Decoupling</h2>
           </section>
 
+
+
+
+
+
+
+
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
             <h3>
@@ -856,14 +863,26 @@ Why are we still forking our CSS?
           </section>
 
 
+          <section>
+            <blockquote>Headless software is software capable of working on a device without a graphical user interface.</blockquote>
+            <p><small><a href="http://en.wikipedia.org/wiki/Headless_software">Wikipedia</a></small></p>
+          </section>
+
 
           <section>
-          <h2>Horseman is calling<br> Drupal out</h2>
-            <blockquote>
-In Drupal today, we have a tendency to conflate our data and our controllers which makes it an absolute mess for front-end developers to reliably get the output they'd like without at least intermediate PHP skills and a full PHP debugger.
-</blockquote>
-            <p><small><a href="https://github.com/davidhwang/horseman/blob/master/dogfooding.md">And on GitHub</a></small></p>
+            <h1>So... Drush?</h1>
           </section>
+
+
+          <section>
+            <h2><small>More like</small><br>
+            Ember<br>
+            Angular<br>
+            Backbone<br>
+            Web Components<br>
+            </h2>
+          </section>
+
 
 
 
@@ -919,6 +938,42 @@ theme('node', $node);</code></pre>
 
 
 
+
+
+          
+
+          <section>
+          <h2>Horseman is calling<br> Drupal out</h2>
+            <blockquote>
+In Drupal today, we have a tendency to conflate our data and our controllers which makes it an absolute mess for front-end developers to reliably get the output they'd like without at least intermediate PHP skills and a full PHP debugger.
+</blockquote>
+            <p><small><a href="https://github.com/davidhwang/horseman/blob/master/dogfooding.md">And on GitHub</a></small></p>
+          </section>
+
+
+
+          <section>
+          <h2>What do we do about it?</h2>
+            <blockquote>
+ In order to resolve this, and to enforce the best practices of separation of presentation and content in modules that's needed for a headless state, anything that gets printed to a page is required to have a controller that is separate from the data model. 
+</blockquote>
+            <p><small><a href="https://github.com/davidhwang/horseman/blob/master/dogfooding.md">Horseman on GitHub</a></small></p>
+          </section>
+
+
+
+
+
+<!--
+
+@todo, add the horseman action items.
+
+-->
+
+
+
+
+
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
             <h2>Clients will see the value in decoupling</h2>
@@ -955,14 +1010,6 @@ theme('node', $node);</code></pre>
 
 
           <section>
-            <h1>GIVEN <small>(now/future)</small></h1>
-            <h3>Front-end web practices are changing faster than those server-side</h3>
-            <h3>So we should look for common patterns</h3>
-            <aside class="notes"><p></p> 
-            </aside>
-          </section>
-
-          <section>
             <h2>Patterns in modern Front-end that Drupal will have to better accommodate</h2>
             <ul>
               <li class="fragment">Data Binding</li>
@@ -979,9 +1026,10 @@ theme('node', $node);</code></pre>
 
 
           <section>
-            <h2>You are moving to the future when...</h2>
+            <h2>You are moving to <br>the future when...</h2>
             <ul>
-              <li class="fragment">You can explain where you draw lines between data and presentation</li>
+              <li class="fragment">You can draw clear lines between data and presentation</li>
+              <li class="fragment">Design Components are defined in one place</li>
               <li class="fragment">You name your Design Components independent of Drupal</li>
               <li class="fragment">Your templates and functions are named after Design Components, not Drupal data structures</li>
               <li class="fragment">You can make changes to front end code used by Drupal (CSS, templates, JS) outside of your Drupal
