@@ -224,66 +224,80 @@ print theme('item_list', $vars);
             <h2>The basic idea</h2>
 <ul>
   <li class="fragment">
-    Tell the theme system what you want to print <code>theme('item_list')</code>
+    Tell the theme system what you want to print <pre><code class="php" data-trim>theme('item_list')</code></pre>
   </li>
   <li class="fragment">
-    Also pass in the content variables <code>theme('item_list', $variables)</code>
+    Also pass in the content variables <pre><code class="php" data-trim>theme('item_list', $variables)</code></pre>
   </li>
   <li class="fragment">
-    The theme system will then call <code>theme_item_list($variables)</code>
+    The theme system will then call: <pre><code class="php" data-trim>theme_item_list($variables)</code></pre>
   </li>
   <li class="fragment">
-    Override that function if you want <code>mysitetheme_item_list($variables)</code>
+    Override that function if you want <pre><code class="php" data-trim>mysitetheme_item_list($variables)</code></pre>
   </li>
 
 </ul>
+
+            <aside class="notes">
+            <p>There's our not-too-complicated idea on how Drupal renders stuff.
+              <br>Separation of data and template.
+            </p> 
+            </aside>
+
 </section>
 
 
 
-<!---
           <section>
-            <h2>Rendering a node</h2>
+            <h2>It gets complicated quickly</h2>
             <pre><code class="php" data-trim>
 $node = node_load(123);
 theme('node', $node);</code></pre>
             <aside class="notes"><p></p> 
             </aside>
 
-
-
           </section>
-
  
 
           <section>
-            <h2>Well, node markup is a little more complicated</h2>
+            <h2>Drupal likes to expose data layers as CSS classes</h2>
             <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
             <aside class="notes">
-
-
+              When all you tell Drupal is "print this node for me" then that is all it will do.<br>
+              Drupal will do it diligently.<br>
+              Drupal will tell us as much as it can through CSS classes.<br>
+              It even has a CSS class to tell us that it didn't print a label on field.
             </aside>
           </section>
 
           <section>
-            <h2></h2>
-            
+            <h2>The basic idea</h2>
+            <ul>
+              <li class="fragment">
+                Tell the theme system what you want to print <pre><code class="php" data-trim>theme('node')</code></pre>
+              </li>
+              <li class="fragment">
+                Give it the node to be rendered <pre><code class="php" data-trim>theme('item_list', array('node' => $node))</code></pre>
+              </li>
+              <li class="fragment">
+                The preprocess layer looks at the raw node and gets printable fields variables
+              </li>
+              <li class="fragment">
+                Those variables get printed in the template <code>node.tpl.php</code>
+              </li>
+              <li class="fragment">
+                Override with template suggestions like <code>node--blogpost.tpl.php</code>
+              </li>
+            </ul>
+
             <aside class="notes">
-
-
+              <p>A ton can happen in the preprocess layer. Load fields, comments, EVA. hook_fields_extra_fields().
+              </p> 
             </aside>
+
           </section>
 
--->
-
-
-
-
-
-
         </section>
-
-
 
 
 
@@ -291,9 +305,26 @@ theme('node', $node);</code></pre>
 
         <section id="past">
 
+
           <section>
-            <h2>The PAST</h2>
+            <h1>The PAST</h1>
+            <h2>"Sustainable Theming"</h2>
           </section>
+
+          <section>
+          <h2>Sustainable Theming</h2>
+          <blockquote>An extensible design, a design tool kit that continues to evolve, without the help of a HTML/CSS developer is the ultimate goal; a design or theme that stays intact as you add new content and new layouts to your site.</blockquote>
+          <p><small><a href="http://www.palantir.net/blog/sustainable-markup-how-be-themer-drupal">Colleen Carroll in 2008</a></small></p>
+
+
+
+       <aside class="notes">     <h2>The Goals of the Past are a lot like the goals of the Present (and the Future)</h2>
+            <h3>We want the design and the content to work together and reduce the likelihood of something breaking.</h3>
+            </aside>
+
+          </section>
+          <!-- @todo Callback this quote later -->
+
 
 
           <section>
@@ -309,12 +340,11 @@ theme('node', $node);</code></pre>
           </section>
 
           <section>
-            <h2>Core names CSS classes by internal data structures</h2>
+            <h2>GIVEN: Core names CSS classes by internal data structures</h2>
             <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
             <aside class="notes">
-            </aside>This image shows an example of Drupal 7 markup. 
+            </aside>
           </section>
-
 
           <section>
             <h1>GIVEN <small>(in D5 era)</small></h1>
@@ -324,57 +354,99 @@ theme('node', $node);</code></pre>
             </aside>
           </section>
 
-
           <section>
             <h1>GIVEN <small>(in D5 era)</small></h1>
             <h2>Your only Build Modes (View Modes) are “full” and “teaser”</h2>
-            <h3>So why not use <code>arg()</code> and CSS classes on <code><body></code> to change appearance</h3>
+            <h3>So why not use <code>arg()</code> and CSS classes on <code>body</code> to change appearance</h3>
             <aside class="notes">
               <p>In the "PRESENT" section of the presentation I'll talk more about the tools we have now for modifying markup in a Design Component mindset. That tool box was rather empty in the D5 era.
             </p> 
             </aside>
           </section>
 
+          <section>
+<blockquote>Drupal is not a build a template first system, its a install a module and theme it system.
+  IMO the templates are there when you need to override something that just isn't working, not override it because you wish there was one [less] div.</blockquote>
+            <p><small><a href="http://www.palantir.net/comment/47#comment-47">Colleen Carroll in 2009</a></small></p>
+          </section>
+
+          <section>
+<blockquote>Themers should do as much as possible using CSS and avoid touching template.php or the .tpl.php files unless it's absolutely necessary. The advantage of this approach is that it makes the theme more portable, more upgradable, and ultimately more maintainable</blockquote>
+            <p><small><a href="http://www.palantir.net/comment/183#comment-183">George DeMet in 2008</a></small></p>
+          </section>
+
+          <section>
+<blockquote>I think that people need to stop trying to fiddle with the HTML layer in Drupal. Its not worth it, its not that interesting, and everything can be done with CSS anyway, and should be.</blockquote>
+            <p><small><a href="http://www.palantir.net/comment/47#comment-47">Colleen Carroll in 2009</a></small></p>
+          </section>
 
 
-<!-- @todo, "What are we doing". Use the Colbert image here. Our job in this mentality is to make the Drupal markup Look Like the Designs  -->
+
+          <section>
+            <h3>What does this CSS look like</h3>
+<pre><code class="code" data-trim>
+.field-field-headline
+{
+  font-weight:bold;
+}
+</code></pre>
+
+          </section>
 
 
-<!---
 
-          <table class="decision-chart">
-            <thead>
-              <tr><th>If you want...</th> <th>Probably means...</th></tr>
-            </thead>
-            <tbody>
-              <tr class="fragment"><td>Multiple core versions</td> <td class="fragment">Separate installs</td></tr>
-              <tr class="fragment"><td>Different content types</td> <td class="fragment">Separate installs, multi-site</td></tr>
-              <tr class="fragment"><td>Single user base</td> <td class="fragment">Domain Access, OG, Single-site</td></tr>
-              <tr class="fragment"><td>Subdomains</td> <td class="fragment">Separate installs, multi-site, Domain Access</td></tr>
-              <tr class="fragment"><td>One domain</td> <td class="fragment">OG, Single-site</td></tr>
-              <tr class="fragment"><td>Simplified server admin</td> <td class="fragment">Domain Access, OG, Single-site</td></tr>
-              <tr class="fragment"><td>Shared content</td> <td class="fragment">Domain Access, OG, Single-site</td></tr>
-              <tr class="fragment"><td>Per-department ACL</td> <td class="fragment">Single-site, OG</td></tr>
-              <tr class="fragment"><td>Department autonomy</td> <td class="fragment">Separate installs, multi-site (less so OG)</td></tr>
-              <tr class="fragment"><td>Per-department Views</td> <td class="fragment">Separate installs, multi-site (less so OG)</td></tr>
-              <tr class="fragment"><td>Staggered migration</td> <td class="fragment">Separate installs, multi-site, Domain Access, proxy server?</td></tr>
-              <tr class="fragment"><td>Per department theme</td> <td class="fragment">Separate installs, Multi-site, Domain Access, OG</td></tr>
-              <tr class="fragment"><td>Inexperienced site admins</td> <td class="fragment">Separate installs, Single-site</td></tr>
-            </tbody>
-          </table>
+          <section>
+            <h3>What does this CSS look like</h3>
+<pre><code class="css" data-trim>
+.field-field-headline
+{
+  font-weight:bold;
+}
+</code></pre>
+
+          </section>
 
 
--->
+          <section>
+            <h3>Complete Coupling to Views and Field Module</h3>
+            <pre><code class="css" data-trim>
+.views-field-field-headline-value
+{
+  font:normal 16px Georgia, "Times New Roman", "Bitstream Vera Serif", serif;
+}</code></pre>
+
+          </section>
+
+
+         <section>
+            <h3>Complete Coupling to Views and Field Module</h3>
+        <pre><code class="css" data-trim>
+.view-blog .views-row,
+.view-wbc-taxonomy-term .views-row,
+.view-successstories .views-row,
+.view-successstories-panel_pane_3 .views-row,
+.view-data .views-row,
+.view-news-summary .views-row
+{
+  border-bottom:1px solid #999;
+}</code></pre>
+  </section>
+
 
           <section>
             <h1>IN A WORLD<br> <small>where CSS is your API to the browser</small></h1>
            <ul>
-              <li class="fragment">Long, multi-element selectors protect against regression</li>
               <li class="fragment">The more CSS selectors the better</li>
               <li class="fragment">The more DIVs the better</li>
               <li class="fragment">The longer the class names the better</li>
+              <li class="fragment">Long, multi-element selectors are very tempting</li>
             </ul>
           </section>
+
+          <section>
+            <h1>What are we doing?</h1>
+          </section>
+
 
           <section>
             <h2>Drupal Core <br>
@@ -383,29 +455,47 @@ theme('node', $node);</code></pre>
               wrapping HTML element.</h2>
           </section>
 
+
           <section>
-            <h2>"Sustainable Theming"</h2>
-            <blockquote>“Generally the best way to achieve that goal is to rely heavily on CSS rather than HTML markup for laying out a page, and not hand-crafting every template for its specific use case; as soon as that specific use case changes, the template no longer makes sense.”</blockquote>
-            <p><small><a href="http://drupalwatchdog.com/volume-1/issue-2/stacking-drupal">Larry "Crell" Garfield in Drupal Watchdog in 2011</a></small></p>
+            <h1>
+              <small>We are making <br>Drupal elements </small/><br>Look Like<br> <small>the design</small>
+            </h1>
           </section>
 
           <section>
-            <img src="assets/palantir-blog.png" alt="A screenshot of a portion of the Palantir Blog" />
-            <p><small><a href="http://palantir.net/blog">Palantir's blog</a></small></p>
-
-            <aside class="notes">
-              <p>Palantir's current site was built early in the Drupal 7 cycle (Summer 2011). It's markup and CSS are a mix of the techniques that this talk refers to as "Past" and "Present"</p>
-            </aside>
+            <h2>"To seem to be,
+              <br>rather than to be"</h2>
+            <img src="assets/colbert.png" alt="Screenshot of Stephen Colbert sitting at his fireplace." />
+            <p><small><a href="http://www.hulu.com/watch/709161#i0,p2,d0">Stephen Colbert</a></small></p>
           </section>
+
+<!--
+
+
+          <section>
+            <h2>When there aren't PSDs</h2>
+<blockquote>We then let Drupal do the work, and let the designers theme the output, NOT vice versa. How does this help? If you have the ability to do this interactive prototype before designs are even created, you can then use the wireframed prototype in Drupal as a stepping stone for the design.</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/sustainable-markup-how-be-themer-drupal">Colleen Carroll in 2008</a></small></p>
+          </section>
+
+
+-->
+
+
+
+
+
+
 
 
         </section>
 
 
-        <section id="present">
+        <section id="present1">
           
           <section>
-            <h1>The PRESENT</h1>
+            <h1>The (Past-ish) PRESENT</h1>
+            <h2>Chasing Easy / Losing Simple</h2>
           </section>
 
           <section>
@@ -455,6 +545,17 @@ theme('node', $node);</code></pre>
             <h3>The "Sustainable Theming" mentality relies on the "themer" knowing how the theme system works.</h3>
           </section>
 
+
+         <section>
+<blockquote>
+Why do I call it the "sustainable" method?  Well, because it involves patience, long-term planning and it truly involves getting your hands dirty with Drupal, getting to know its inner structure, even when it changes and annoys the crap out of you.  I'd rather work with it than against it.
+</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/drupal-theming-getting-your-hands-dirty-and-building-house-0">Colleen Carroll in 2009</a></small></p>
+          </section>
+
+
+
+
           <section>
             <h2>How many people know how this works?</h2>
             <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
@@ -467,6 +568,14 @@ theme('node', $node);</code></pre>
 <!-- use theme(node) vs theme(item_list) example. -->
 
 <!-- @todo, work in the simple vs easy dynamic -->
+
+
+        <section id="present1">
+          
+          <section>
+            <h1>The (future-ish) PRESENT</h1>
+            <h2>Make the markup match</h2>
+          </section>
 
 
           <section>
@@ -544,10 +653,11 @@ theme('node', $node);</code></pre>
 
 
 
-        <section id="present">
+        <section id="future">
 
           <section>
             <h1>The FUTURE</h1>
+            <h2>Clear Decoupling</h2>
           </section>
 
           <section>
