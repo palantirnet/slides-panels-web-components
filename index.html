@@ -590,14 +590,17 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             <p><small><a href="http://www.palantir.net/blog/drupal-theming-getting-your-hands-dirty-and-building-house-0">Colleen Carroll in 2009</a></small></p>
           </section>
 
-
-
-
           <section>
             <h2>How many people know how this works?</h2>
             <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
             <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
           </section>
+
+          <section>
+            <h3>In chasing <em>easy</em><br>
+            We lost <em>simple</em>
+            </h3>
+          </section>          
  </section>
 
 <!-- In chasing easy, we completely lost simple. And as simple got lost, so did easy. -->
@@ -631,15 +634,18 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
 
 
           <section>
-            <h2>Responsive</h2>
-            <img src="assets/PRI_6.jpg" alt="The Public Radio International site shown on different devices" />
-            <p><small><a href="http://palantir.net/experience/public-radio-international">Public Radio International</a></small></p>
+            <h2>Responsive wireframes</h2>
+            <img src="assets/UofM-Health-RWD.png" alt="University of Michigan Health System site shown on different devices" />
+            <p><small><a href="http://palantir.net/experience/university-michigan-health-system">University of Michigan Health System</a></small></p>
             <aside class="notes">
-              <p>Responsive Design made it near impossible to say with a straight face, "I designed a website" when you made a static picture of the site in Photoshop. You're not done designing until you show how the site behaves on representative set of devices. For the time being, the only way to do that is by working in the actual medium of HTML and CSS.</p>
+              <p>
+              Design team knew they needed to be in the browser<br>
+              Focused on major elements<br>
+              --reflowing of elements, nav, body<br>
+              <b>FEDs rewrite a lot of it</b>
+              </p>
             </aside>
           </section>
-
-
 
 
           <section>
@@ -651,35 +657,114 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
           </section>
 
 
-<!--  Interlochen example? -->
+          <section>
+            <h2>Responsive prototypes</h2>
+            <img src="assets/PRI_6.jpg" alt="The Public Radio International site shown on different devices" />
+            <p><small><a href="http://palantir.net/experience/public-radio-international">Public Radio International</a></small></p>
+            <aside class="notes">
+              <p>
+            Prototypes more robust<br>
+            CSS/Markup from the designers is getting better and better<br>
+              </p>
+            </aside>
+          </section>
 
 
           <section>
             <h1>GIVEN <small>(NOW)</small></h1>
             <h2>Our designers think in <br><em>Design Components</em></h2>
             <h3>Those are a consistent starting point to dev/designer conversations</h3>
-            <aside class="notes"><p></p> 
+            <aside class="notes">
+              <p>
+Why are we still forking our CSS?
+</p>
             </aside>
+
           </section>
 
           <section>
             <h1>GIVEN <small>(NOW)</small></h1>
             <h2>Everybody wants a "living" style guide</h2>
             <h3>Our job is now to make Drupal match the Design Components</h3>
-            <aside class="notes"><p></p> 
+            <aside class="notes">
+              <p></p>
             </aside>
+          </section>
+
+          <section>
+            <h1>For a style guide to be "living" the CSS and the markup need to be the same in both places</h1>
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+
+          <section>
+            <h1>What are we doing (now)?</h1>
+          </section>
+
+          <section>
+            <h2>We are making the markup match</h2>
+            <h3>The CSS "Just Works"</h3>
           </section>
 
 
           <section>
-          <h2>Why didn't we do that before?</h2>
+          <h2>Why didn't we <br>do that before?</h2>
             <blockquote>The "strip-it" method gives you incredible control over the theme and the output of the site, which is an awesome thing.  However, it doesn't give you the ability to let a client add a new view to the site and have it follow the theme/style guide</blockquote>
             <p><small><a href="http://www.palantir.net/blog/drupal-theming-getting-your-hands-dirty-and-building-house-0">Colleen Carroll in 2009</a></small></p>
           </section>
 
+          <section>
+            <h1>Now we have the technology</h1>
+          </section>
+
 
           <section>
-            <h2>How do you map Design Components to Drupal?</h2> @todo Show before after markup
+            <h2>Your static prototype has this Design Component</h2>
+            <img src="assets/illustrated-list-item.png" alt="Screen shot of an illustrated list item Design Component" />
+          </section>
+
+
+
+
+
+          <section>
+            <h2>How do you make Drupal print that?</h2>
+
+<pre><code>
+<article class="illustrated-list-item">
+
+  <figure class="illustrated-list-item__image">
+    <a href="#">
+      <img src="/wwwD7/assets/imgs/example.jpg">
+    </a>
+  </figure>
+
+  <p class="illustrated-list-item__metadata">
+    <span class="month">June</span> 6, 2014
+  </p>
+
+  <h1 class="illustrated-list-item__title">
+    <a href="#">
+      22nd Annual Golf Tournament
+    </a>
+  </h1>
+
+</article>
+
+</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+
+
+
+
+
+
+          <section>
+            <h2>What were those contrib tools again?</h2>
             <ul>
               <li class="fragment">Panels, Page Manager, Panels Everywhere, Mini Panels, Panelizer</li>
               <li class="fragment">Display Suite layouts</li>
@@ -689,21 +774,36 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             </ul>
           </section>
 
-          <section>
-            <h2>Modifying markup with tools beyond core</h2>
-            <ul>
-              <li class="fragment">Define ideal markup in a style guide / prototype</li>
-              <li class="fragment">Map design objects to Panels layout and style plugins</li>
-              <li class="fragment">Display Suite layouts</li>
-              <li class="fragment">Views Display plugins</li>
-              <li class="fragment">Suppress unwanted divs with Fences</li>
-              <li class="fragment">Add View Modes</li>
-            </ul>
-          </section>
+
 
           <section>
-            <h2>Panels is our go-to tool for mapping Design Components</h2>
-            <h3>Panels itself is a UI on top of hook_theme()</h3>
+            <h2>Panels itself is a UI on top of hook_theme()</h2>
+            <h3>Map Design Components <br>to Layout Plugins</h3>
+            
+
+<pre><code class="php" data-trim>
+<article class="illustrated-list-item">
+
+  <figure class="illustrated-list-item__image">
+    < ?php print $content['compact_list_item_image']; ?>
+  </figure>
+  
+  <div class="illustrated-list-item__metadata">
+    < ?php print $content['compact_list_item_date']; ?>
+  </div>
+  
+  <h1 class="illustrated-list-item__title">
+    < ?php print $content['compact_list_item_title']; ?>
+  </h1>
+
+</article>
+</code></pre>
+          </section>
+
+
+
+          <section>
+            <h2>Use layout plugins <br>at multiple layers of Drupal</h2>
             <ul>
               <li class="fragment">Panels Everywhere for the <code>page.tpl.php</code> level</li>
               <li class="fragment">Page Manager for the "main content" level</li>
@@ -711,7 +811,21 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
               <li class="fragment">Mini Panels for block level</li>
             </ul>
           </section>
+
+          <section>
+            <h2>In the future-ish present we <em>try</em> to BE the design by making the markup match.</h2>
+            
+            <aside class="notes"><p>The CSS can just be the same in both places<br>
+            We're still TRYING on the markup.</p> 
+            </aside>
+          </section>
         </section>
+
+    </section>
+
+
+
+
 
 
 <!-- @todo, reference http://www.palantir.net/blog/platonic-content -->
