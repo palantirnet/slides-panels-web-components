@@ -220,7 +220,28 @@ print theme('item_list', $vars);
           </section>
 
 
+          <section>
+            <h2>The basic idea</h2>
+<ul>
+  <li class="fragment">
+    Tell the theme system what you want to print <code>theme('item_list')</code>
+  </li>
+  <li class="fragment">
+    Also pass in the content variables <code>theme('item_list', $variables)</code>
+  </li>
+  <li class="fragment">
+    The theme system will then call <code>theme_item_list($variables)</code>
+  </li>
+  <li class="fragment">
+    Override that function if you want <code>mysitetheme_item_list($variables)</code>
+  </li>
 
+</ul>
+</section>
+
+
+
+<!---
           <section>
             <h2>Rendering a node</h2>
             <pre><code class="php" data-trim>
@@ -236,7 +257,7 @@ theme('node', $node);</code></pre>
  
 
           <section>
-            <h2>Well, this markup is a little more complicated</h2>
+            <h2>Well, node markup is a little more complicated</h2>
             <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
             <aside class="notes">
 
@@ -253,7 +274,7 @@ theme('node', $node);</code></pre>
             </aside>
           </section>
 
-
+-->
 
 
 
