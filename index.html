@@ -144,11 +144,127 @@
             <p><a href="http://en.wikipedia.org/wiki/William_Gibson">William Gibson</a></p>
             <aside class="notes"><p>The presentation is given from a Drupal/Palantir/Steve Persch perspective. Many of the techniques I'll call "future" are already being used successfully inside and outside of Drupal. Many of the techiques I'll call "past" are still here now and will remain for years to come.</p> 
             </aside>
-
           </section>
 
 
         </section>
+
+
+        <section>
+
+
+          <section>
+            <h1>What are we doing?</h1>
+            <aside class="notes"><p>I'm going to ask this question a couple of time during the presentation. How we think about the things we're doing, what we THINK we're actually doing, greatly affects what we are, in fact doing.</p> 
+            </aside>
+          </section>
+
+          <section>
+            <h2>"Web programming is the science of coming up with increasingly complicated ways of concatenating strings."</h2>
+            <p><a href="https://twitter.com/thegdb/status/148293778019581952">Greg Brockman</a></p>
+            <aside class="notes"><p>By this measure Drupalers are really good scientists.</p> 
+            </aside>
+          </section>
+
+
+          <section>
+            <h1>The once and future theme()</h1>
+            <aside class="notes"><p>Let's start with a simple example with our main concatentor. The theme()</p> 
+            </aside>
+          </section>
+
+
+
+        <section>
+            <h2>theme_item_list()</h2>
+            <table><tr>
+
+
+
+              <td>
+                        <pre><code class="php" data-trim>
+$vars['title'] = 'Grocery List';
+$vars['items'] = array(
+  'Fruit',
+  'Bread',
+  'Cheese',
+  'Meat',
+);
+print theme('item_list', $vars);
+</code></pre>
+</td>
+
+<td>
+<pre><code class="html" data-trim>
+
+<div class="item-list">
+  <h3>Grocery List</h3>
+  <ul>
+    <li class="first">Fruit</li>
+    <li>Bread</li>
+    <li>Cheese</li>
+    <li class="last">Meat</li>
+  </ul>
+</div>
+
+
+</code></pre>
+</td>
+</tr></table>
+            <aside class="notes">
+            <p>Theme item list has been in Drupal for 12 years. 562df8fe43f8794317c974dae463f54 When it was added it didn't even use ul/li, just line breaks.
+
+              The function theme_item
+            </p> 
+            </aside>
+          </section>
+
+
+
+          <section>
+            <h2>Rendering a node</h2>
+            <pre><code class="php" data-trim>
+$node = node_load(123);
+theme('node', $node);</code></pre>
+            <aside class="notes"><p></p> 
+            </aside>
+
+
+
+          </section>
+
+ 
+
+          <section>
+            <h2>Well, this markup is a little more complicated</h2>
+            <img src="assets/drupal-core-markup.png" alt="Drupal Core Markup" />
+            <aside class="notes">
+
+
+            </aside>
+          </section>
+
+          <section>
+            <h2></h2>
+            
+            <aside class="notes">
+
+
+            </aside>
+          </section>
+
+
+
+
+
+
+
+
+        </section>
+
+
+
+
 
 <!--- @todo theme_item_list / theme_node dichtomy  look at hook_theme-->
 
