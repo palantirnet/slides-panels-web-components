@@ -277,7 +277,7 @@ theme('node', $node);</code></pre>
                 Tell the theme system what you want to print <pre><code class="php" data-trim>theme('node')</code></pre>
               </li>
               <li class="fragment">
-                Give it the node to be rendered <pre><code class="php" data-trim>theme('item_list', array('node' => $node))</code></pre>
+                Give it the node to be rendered <pre><code class="php" data-trim>theme('node', array('node' => $node))</code></pre>
               </li>
               <li class="fragment">
                 The preprocess layer looks at the raw node and gets printable fields variables
@@ -357,7 +357,7 @@ theme('node', $node);</code></pre>
           <section>
             <h1>GIVEN <small>(in D5 era)</small></h1>
             <h2>Your only Build Modes (View Modes) are “full” and “teaser”</h2>
-            <h3>So why not use <code>arg()</code> and CSS classes on <code>body</code> to change appearance</h3>
+            <h3>Use Views UI and CSS classes on <code>body</code> to change appearance</h3>
             <aside class="notes">
               <p>In the "PRESENT" section of the presentation I'll talk more about the tools we have now for modifying markup in a Design Component mindset. That tool box was rather empty in the D5 era.
             </p> 
@@ -396,18 +396,6 @@ theme('node', $node);</code></pre>
 
 
           <section>
-            <h3>What does this CSS look like</h3>
-<pre><code class="css" data-trim>
-.field-field-headline
-{
-  font-weight:bold;
-}
-</code></pre>
-
-          </section>
-
-
-          <section>
             <h3>Complete Coupling to Views and Field Module</h3>
             <pre><code class="css" data-trim>
 .views-field-field-headline-value
@@ -422,9 +410,9 @@ theme('node', $node);</code></pre>
             <h3>Complete Coupling to Views and Field Module</h3>
         <pre><code class="css" data-trim>
 .view-blog .views-row,
-.view-wbc-taxonomy-term .views-row,
-.view-successstories .views-row,
-.view-successstories-panel_pane_3 .views-row,
+.view-CLIENTNAME-taxonomy-term .views-row,
+.view-promoarticles .views-row,
+.view-promoarticles-panel_pane_3 .views-row,
 .view-data .views-row,
 .view-news-summary .views-row
 {
@@ -498,8 +486,45 @@ theme('node', $node);</code></pre>
             <h2>Chasing Easy / Losing Simple</h2>
           </section>
 
+
           <section>
-            <h2>The Drupal 7 theme system is complex</h2>
+          <h2>"Sustainable Building Blocks"</h2>
+            <blockquote>now instead of overriding the theme function for a field you write a new formatter that does just what you want. ... Your theme override trick has now become a well-encapsulated, portable, flexible building block that you can reuse anywhere on your site, or on your next site, or your next 12 sites.</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/building-sustainable-building-blocks">Larry Garfield in 2009</a></small></p>
+                        <aside class="notes"><p>Just as "Sustainable Theming" is getting traction, we see something different. On the one hand we have "don't bother altering the HTML", 
+                        on the other "we have new, easy, resuable ways to alter the HTML"</p> 
+            </aside>
+          </section>
+
+
+          <section>
+          <h2>Write more plugins</h2>
+            <blockquote>And speaking of views, one-off overrides are so old school. Instead of building everything off of list views and custom theming, build a new style plugin. Or a display plugin. Or an argument handler.</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/building-sustainable-building-blocks">Larry Garfield in 2009</a></small></p>
+          </section>
+
+          <section>
+          <h2>Why?</h2>
+            <blockquote>True, it's another API to learn (as if Drupal doesn't have enough already), but the result is a reusable building block that does just what you need in a clean, extensible fashion that can be mixed and matched with other reusable building blocks, both yours and someone else's.</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/building-sustainable-building-blocks">Larry Garfield in 2009</a></small></p>
+          </section>
+
+          <section>
+          <h1>What are we doing?</h1>
+          </section>
+
+          <section>
+            <h2>Are writing CSS <br>to make a View <br><em>Look Like</em><br> a slideshow?</h2>
+          </section>
+
+         <section>
+            <h2>Are we writing <br>a Display Plugin<br> to make a View <br><em>BE</em><br> a slideshow?</h2>
+          </section>
+
+
+
+          <section>
+            <h2> D7's complexity clouds that question</h2>
             <img src="assets/theme-system.png" alt="The flow chart of Drupal's terrible theme system flow" />
             <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
           </section>
@@ -542,8 +567,20 @@ theme('node', $node);</code></pre>
 
           <section>
             <h1>WHAT ARE WE DOING?</h1>
+          </section>
+
+          <section>
+            <h2>Whatever feels easier<br>(Not simpler)</h2>
+          </section>
+
+
+
+
+          <section>
             <h3>The "Sustainable Theming" mentality relies on the "themer" knowing how the theme system works.</h3>
           </section>
+
+
 
 
          <section>
@@ -590,6 +627,9 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             </aside>
           </section>
 
+<!-- @todo, Michigan example -->
+
+
           <section>
             <h2>Responsive</h2>
             <img src="assets/PRI_6.jpg" alt="The Public Radio International site shown on different devices" />
@@ -599,6 +639,9 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             </aside>
           </section>
 
+
+
+
           <section>
             <h1>GIVEN <small>(NOW)</small></h1>
             <h2>The designs are in HTML/CSS</h2>
@@ -607,13 +650,33 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             </aside>
           </section>
 
+
+<!--  Interlochen example? -->
+
+
           <section>
             <h1>GIVEN <small>(NOW)</small></h1>
-            <h2>Our designers think in Design Components</h2>
-            <h3>Our job is now to make Drupal print those Design Components</h3>
+            <h2>Our designers think in <br><em>Design Components</em></h2>
+            <h3>Those are a consistent starting point to dev/designer conversations</h3>
             <aside class="notes"><p></p> 
             </aside>
           </section>
+
+          <section>
+            <h1>GIVEN <small>(NOW)</small></h1>
+            <h2>Everybody wants a "living" style guide</h2>
+            <h3>Our job is now to make Drupal match the Design Components</h3>
+            <aside class="notes"><p></p> 
+            </aside>
+          </section>
+
+
+          <section>
+          <h2>Why didn't we do that before?</h2>
+            <blockquote>The "strip-it" method gives you incredible control over the theme and the output of the site, which is an awesome thing.  However, it doesn't give you the ability to let a client add a new view to the site and have it follow the theme/style guide</blockquote>
+            <p><small><a href="http://www.palantir.net/blog/drupal-theming-getting-your-hands-dirty-and-building-house-0">Colleen Carroll in 2009</a></small></p>
+          </section>
+
 
           <section>
             <h2>How do you map Design Components to Drupal?</h2> @todo Show before after markup
@@ -640,17 +703,18 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
 
           <section>
             <h2>Panels is our go-to tool for mapping Design Components</h2>
+            <h3>Panels itself is a UI on top of hook_theme()</h3>
             <ul>
-              <li class="fragment">Define ideal markup in a style guide / prototype</li>
-              <li class="fragment">Map design objects to Panels layout and style plugins</li>
-              <li class="fragment">Display Suite layouts</li>
-              <li class="fragment">Views Display plugins</li>
-              <li class="fragment">Suppress unwanted divs with Fences</li>
-              <li class="fragment">Add View Modes</li>
+              <li class="fragment">Panels Everywhere for the <code>page.tpl.php</code> level</li>
+              <li class="fragment">Page Manager for the "main content" level</li>
+              <li class="fragment">Panelizer for View Modes</li>
+              <li class="fragment">Mini Panels for block level</li>
             </ul>
           </section>
         </section>
 
+
+<!-- @todo, reference http://www.palantir.net/blog/platonic-content -->
 
 
         <section id="future">
@@ -659,6 +723,24 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             <h1>The FUTURE</h1>
             <h2>Clear Decoupling</h2>
           </section>
+
+<!-- @todo, the unresolved tension of theme() -->
+
+
+
+          <section>
+            <h1>GIVEN <small>(now/future)</small></h1>
+            <h3>
+              Headless, Headless, Headless, Headless, 
+              Headless, Headless, Headless, Headless, 
+              Headless, Headless, Headless, Headless.              
+            </h3>
+              <p>In the session description I promised a dozen references to Headless Drupal</p> 
+            <aside class="notes"><p></p> 
+            </aside>
+          </section>
+
+
 
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
@@ -684,17 +766,7 @@ Why do I call it the "sustainable" method?  Well, because it involves patience, 
             </aside>
           </section>
 
-          <section>
-            <h1>GIVEN <small>(now/future)</small></h1>
-            <h3>
-              Headless, Headless, Headless, Headless, 
-              Headless, Headless, Headless, Headless, 
-              Headless, Headless, Headless, Headless.              
-            </h3>
-              <p>In the session description I promised a dozen references to Headless Drupal</p> 
-            <aside class="notes"><p></p> 
-            </aside>
-          </section>
+
 
           <section>
             <h1>GIVEN <small>(now/future)</small></h1>
