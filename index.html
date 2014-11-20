@@ -504,6 +504,30 @@ theme('node', $node);</code></pre>
             <p><small><a href="http://www.palantir.net/blog/building-sustainable-building-blocks">Larry Garfield in 2009</a></small></p>
           </section>
 
+
+         <section>
+            <h2>Views Cycle Module</h2>
+
+<pre><code class="php" data-trim>
+
+< ?php echo $js_settings; ?>
+<div class="views-cycle item-list">
+  < ?php if (!empty($title)) : ?>
+    <h3><?php print $title; ?></h3>
+  < ?php endif; ?>
+  << ?php print $options['type']; ?> class="views-cycle-container" id="< ?php echo $cycle_id; ?>">
+    < ?php foreach ($rows as $row): ?>
+      <li><?php print $row; ?></li>
+    < ?php endforeach; ?>
+  < / < ?php print $options['type']; ?>>
+</div>
+
+</code></pre>
+          </section>
+
+
+
+
           <section>
           <h2>Why?</h2>
             <blockquote>True, it's another API to learn (as if Drupal doesn't have enough already), but the result is a reusable building block that does just what you need in a clean, extensible fashion that can be mixed and matched with other reusable building blocks, both yours and someone else's.</blockquote>
