@@ -177,11 +177,21 @@
 
         <section>
             <h2>theme_item_list()</h2>
-            <table><tr>
+            <table>
 
-
-
-              <td>
+               <tr>
+                 <td>
+                  <b>PHP</b>
+                </td>
+                <td>
+                  <b>HTML</b>
+                </td>
+                <td>
+                  <b>Final</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
                         <pre><code class="php" data-trim>
 $vars['title'] = 'Grocery List';
 $vars['items'] = array(
@@ -210,6 +220,24 @@ print theme('item_list', $vars);
 
 </code></pre>
 </td>
+
+<td>
+
+
+<div class="item-list">
+  <h3>Grocery List</h3>
+  <ul>
+    <li class="first">Fruit</li>
+    <li>Bread</li>
+    <li>Cheese</li>
+    <li class="last">Meat</li>
+  </ul>
+</div>
+
+
+
+</td>
+
 </tr></table>
             <aside class="notes">
             <p>Theme item list has been in Drupal for 12 years. 562df8fe43f8794317c974dae463f54 When it was added it didn't even use ul/li, just line breaks.
