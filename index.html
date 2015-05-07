@@ -160,30 +160,143 @@
 
 
           <section>
-            <h2>What are Web Components?</h2>
+            <h2>What are <br>Web Components?</h2>
+            <q>...a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications.</q>
+            <br><a href="http://en.wikipedia.org/wiki/Web_Components">http://en.wikipedia.org/wiki/Web_Components</a>
           </section>
 
           <section>
-            <h2>a GIF Web Component</h2>
+            <h2>An (extremely) abbreviated history of HTML</h2>
+          </section>
 
-			<pre><code class="nohighlight attribute" data-trim>
-		       <x-gif src="assets/plinko.gif" ping-pong ></x-gif>
-			</code></pre>
+          <section>
+            <h2>Before HTML5</h2>
+
+            <h3>The Select Element</h3>
+            <select>
+              <optgroup label="North American">
+                <option value="los_angeles">Los Angeles</option>
+                <option value="austin">Austin</option>
+               <option value="portland" selected>Portland</option>
+              </optgroup>
+              <optgroup label="European">
+                <option value="amsterdam">Amsterdam</option>
+                <option value="prague">Prague</option>
+                <option value="munich">Munich</option>
+              </optgroup>
+            </select>
+            <pre><code class="html" data-trim>
+
+              <select>
+                <optgroup label="North American">
+                  <option value="los_angeles">Los Angeles</option>
+                  <option value="austin">Austin</option>
+                 <option value="portland" selected>Portland</option>
+                </optgroup>
+                <optgroup label="European">
+                  <option value="amsterdam">Amsterdam</option>
+                  <option value="prague">Prague</option>
+                  <option value="munich">Munich</option>
+                </optgroup>
+              </select>
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>HTML5</h2>
+
+            <audio controls>
+              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
+              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+              <p>Your user agent does not support the HTML5 Audio element.</p>
+            </audio>
+
+            <pre><code class="html" data-trim>
+            <audio controls>
+              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
+              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+              <p>Your user agent does not support the HTML5 Audio element.</p>
+            </audio>
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>After HTML5:<br>Web Components</h2>
+
+      			<pre><code class="nohighlight attribute" data-trim> 
+      		    <x-gif src="assets/plinko.gif" ping-pong ></x-gif>
+      			</code></pre>
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
+          </section>
 
+          <section>
+            <h2>Separating the definition of an element from the usage</h2>
 
-
+<table>
+  <tr>
+    <td>
+      Lots of code defines the element
+    </td>
+    <td>
+     Very little to invoke
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <pre>
+dist/
+├── layout.html
+├── platform.js
+├── polymer.html
+├── polymer.js
+├── polymer.js.map
+├── x-gif.angular.js
+├── x-gif.css
+├── x-gif.html
+├── x-gif.js
+└── x-gif.local.html
+    </pre>
+    </td>
+    <td>
+                <pre><code class="nohighlight attribute" data-trim> 
+              <x-gif src="assets/plinko.gif"></x-gif>
+            </code></pre>
+    </td>
+  </tr>
+  <aside>Don't write code. Use Drupal.</aside>
+</table>
 
           </section>
+
 
 
           <section>
             <h2>What is Panels?</h2>
+            <img src="assets/colbert.png" alt="Screenshot of Stephen Colbert sitting at his fireplace." />
           </section>
 
           <section>
             <h2>Panels is a user interface for <code>theme()</code></h2>
           </section>
+
+          <section>
+            <h2>But let's forget about the UI for a minute</h2>
+            <img src="assets/page-manager-panels.png" alt="Screenshot Page Manager Panels" />
+          </section>
+
+          <section>
+            <h2>Panels is a way to take data (Context)</h2>
+          </section>
+
+          <section>
+            <h2>And get it ready for printing in a template</h2>
+          </section>
+
+          <section>
+            <h2>By passing it through user defined configuration</h2>
+          </section>                    
+
+
 
           <section>
             <h2>What are Web Components?</h2>
