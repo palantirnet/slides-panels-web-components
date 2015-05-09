@@ -187,19 +187,21 @@
             </select>
             <pre><code class="html" data-trim>
 
-              <select>
-                <optgroup label="North American">
-                  <option value="los_angeles">Los Angeles</option>
-                  <option value="austin">Austin</option>
-                 <option value="portland" selected>Portland</option>
-                </optgroup>
-                <optgroup label="European">
-                  <option value="amsterdam">Amsterdam</option>
-                  <option value="prague">Prague</option>
-                  <option value="munich">Munich</option>
-                </optgroup>
-              </select>
+<select>
+  <optgroup label="North American">
+    <option value="los_angeles">Los Angeles</option>
+    <option value="austin">Austin</option>
+   <option value="portland" selected>Portland</option>
+  </optgroup>
+  <optgroup label="European">
+    <option value="amsterdam">Amsterdam</option>
+    <option value="prague">Prague</option>
+    <option value="munich">Munich</option>
+  </optgroup>
+</select>
             </code></pre>
+              <aside class="notes">Imagine how hard it would be to make a select element in the 1990s or 2000s if it didn't exist.
+              How hard to style.</aside>
           </section>
 
           <section>
@@ -218,6 +220,11 @@
               <p>Your user agent does not support the HTML5 Audio element.</p>
             </audio>
             </code></pre>
+              <aside class="notes">After 10ish years of debate. Usage of HTML5 elements is normal.<br>
+              Easier to imagine getting by without them.<br>
+              Easier to customize.
+              </aside>
+
           </section>
 
           <section>
@@ -227,6 +234,11 @@
       		    <x-gif src="assets/plinko.gif" ping-pong ></x-gif>
       			</code></pre>
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
+
+            <aside class="notes">
+            You don't need them.<br>
+            Customization/Extension is built in.
+              </aside>
           </section>
 
           <section>
@@ -263,13 +275,12 @@ dist/
             </code></pre>
     </td>
   </tr>
-  <aside>Don't write code. Use Drupal.</aside>
+  <aside class="notes">Don't write code. Use Drupal.</aside>
 </table>
 
           </section>
-
-
-
+        </section>
+        <section>
           <section>
             <h2>What is Panels?</h2>
             <img src="assets/colbert.png" alt="Screenshot of Stephen Colbert sitting at his fireplace." />
@@ -293,23 +304,170 @@ dist/
           </section>
 
           <section>
-            <h2>By passing it through user defined configuration</h2>
-          </section>                    
-
-
-
-          <section>
-            <h2>What are Web Components?</h2>
+            <h2>By passing the data through user defined configuration</h2>
           </section>
         </section>
 
 
         <section>
           <section>
-            <h2>Why are we talking about Web Components* ?</h2>
+            <h2>Why should we care about Web Components* ?</h2>
             <p>*Or Angular, or React, or Ember, Marionette</p>
           </section>
+
+          <section>
+            <h2>The ability to componentize and reuse is a measure of progress</h2>
+          </section>
+
+          <section>
+            <q>The way to be more productive is to <b>write less</b> code.<br>
+The way to be more productive is to <b>reuse more</b> code.<br>
+The way to be more productive is to <b>share more</b> code.</q><br>
+<a href="http://www.palantir.net/presentations/craftingcode2014-php-renaissance/#/11">Larry "Crell" Garfield</a>
+          </section>
+
+
+
+          <section>
+            <h2>What caused the PHP renaissance?</h2>
+
+Class autoloading
+Github
+Namespaces
+The PHP Standards Group
+Composer
+Common Interfaces
+
+
+<a href="http://www.palantir.net/presentations/craftingcode2014-php-renaissance/#/11">Larry "Crell" Garfield</a>
+          </section>
+
+          <section>
+            <h2>What do we have to show for it?</h2>
+
+Tree of vendor directory from composer
+
+          </section>
+
+
+
+
+          <section>
+            <h2>And we're doing well on the front end</h2>
+Tree
+          </section>
+
+
+
+          <section>
+            <h2>The Dependency Injection Container bridges between 3rd-party interfaces and Drupal's internals</h2>
+
+<q>a Dependency Injection Container (DIC) is simply an easier place to wire up what objects get passed to what objects.</q><br>
+
+<a href="http://www.palantir.net/blog/d8ftw-hacking-core-without-killing-kittens">Larry "Crell" Garfield</a>
+          </section>
+
         </section>
+
+          <section>
+            <h2>Can we imagine wiring to 3rd-party markup</h2>
+          </section>
+
+          <section>
+            <h2>Can we share our admin toolbar with the world?</h2>
+          </section>
+
+          <section>
+            <h2>Could we replace our admin toolbar with another one?</h2>
+          </section>
+
+
+
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Why are Web Components going to be a challenge for Drupal?</h2>
+
+            <aside class="notes">Not every wave in Web Development is particularly hard for Drupal.<br>
+HTTPS Everywhere? We can do that.<br>
+REST? We've been working on it!
+</aside>
+          </section>
+
+
+
+
+        <section>
+          <h2>The Way Drupal thinks of rendering is complicated</h2>
+          <img src="assets/theme-system.png" alt="The flow chart of Drupal's theme system flow" />
+          <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
+        </section>
+
+        <section>
+          <h2>In Drupal 8 too</h2>
+          <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
+          <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
+        </section>
+
+
+
+        </section>
+
+
+
+
+
+
+        <section>
+          <section>
+            <h2>Lessons from Panels</h2>
+          </section>
+
+
+          <section>
+            <h2>Lesson: Not all theme hooks require equal attention</h2>
+          </section>
+
+        <section>
+          <h2>Drupal 7 theming:</h2>
+            <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again. </q><br>
+<a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
+John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a>
+        </section>
+
+        <section>
+          <h2>Where to start customizing Drupal markup?</h2>
+          <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
+          <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
+John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
+
+            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br> Separation of Concerns
+</aside>
+
+        </section>
+
+
+
+
+
+
+          </section>
+
+
+
+        </section>
+
+
+        <section>
+          <section>
+            <q>As the Drupal community asks itself again<br> how it wants to <b>do</b> rendering, let's also ask <br>"how do we want to <b>think about</b> rendering?</q>
+            <p><a href="http://palantir.net/blog/explaining-panels-why-i-use-panels">-me</a> 
+</p>
+          </section>
+        </section>
+
 
 
 	  </div>
