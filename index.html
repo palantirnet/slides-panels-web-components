@@ -166,6 +166,11 @@
           </section>
 
           <section>
+            <h2>Side note: What's a "Design Component"?</h2>
+            <aside class="notes"></aside>
+          </section>          
+
+          <section>
             <h2>An (extremely) abbreviated history of HTML</h2>
           </section>
 
@@ -431,7 +436,7 @@ REST? We've been working on it!
 
           <section>
             <h2>Drupal 7 theming:</h2>
-              <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again. </q><br>
+              <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again.</q><br>
   <a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
   John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a>
           </section>
@@ -442,25 +447,39 @@ REST? We've been working on it!
             <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
   John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
 
-            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br> Separation of Concerns
+            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br>You can debate endlessly whether a given html element should be coming out of a given theme hook or it's parent.<br>
+            Are you theming the Views row? Or the thing in the Row?<br>Whichever is the Panel. Whichever is the web component.
             </aside>
           </section>
 
           <section>
-            <h2>Where to start customizing Drupal markup?</h2>
-            <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
-            <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
-  John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
-
-            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br> Separation of Concerns
+            <h2>Panels priortizes some layers</h2>
+            <img src="assets/d7-theming-panels.png" alt="The flow chart of Drupal 7 theming overlayed with Panels boxes" />
+            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br>
             </aside>
           </section>
 
+          <section>
+            <h2>Lesson: “A good architecture <i>allows</i> you to defer critical decisions”</h2>
+            <p><small><a href="http://blog.8thlight.com/uncle-bob/2011/11/22/Clean-Architecture.html">(Uncle) Bob Martin </a></small></p>
 
+            <aside class="notes">
+            Anecdote about breaking up home page<br>
+              The Drupal theme system is used in lots of different ways. theme_item_list vs. panels.<br>
+              Standardizing has huge benefits.<br>
+              <b>Ancedote about theming at the field instance level vs. the Field Collection entity level</b>
+            </aside>
+          </section>
 
           <section>
-          @todo, move up this lesson to be second???????????
+          
             <h2>Lesson: Separate names indicate separation of concerns</h2>
+
+          </section>
+
+          <section>
+            <h2>The name of the template matches the name of the internal data</h2>
+            <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
             <aside class="notes">
               Traditional Drupal encourages "overriding" the node template. What if you want something completely different?
             </aside>
@@ -483,25 +502,63 @@ REST? We've been working on it!
           </section>
 
           <section>
-            <h2>Lesson: “A good architecture <i>allows</i> you to defer critical decisions”</h2>
-<p><small><a href="http://blog.8thlight.com/uncle-bob/2011/11/22/Clean-Architecture.html">
-(Uncle) Bob Martin</a></small></p>
-
-            <aside class="notes">
-            Anecdote about breaking up home page<br>
-              The Drupal theme system is used in lots of different ways. theme_item_list vs. panels.<br>
-              Standardizing has huge benefits.<br>
-              <b>Ancedote about theming at the field instance level vs. the Field Collection entity level</b>
-            </aside>
-          </section>
-
-          <section>
             <h2>Lesson: Simple mental models help</h2>
             <aside class="notes">
 Context, Configuration, Template<br>
 Here is where to put MV*, etc.
             </aside>
           </section>
+
+          <section>
+            <h2>The modern front end world has its patterns of choice</h2>
+
+          </section>
+
+          <section>
+            <h2>Model View Controller</h2>
+            <img src="assets/698px-MVC-Process.jpg" height="400px" alt="Wikipedia's diagram of Model View Controller" />
+            <p><small><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">
+  Wikipedia</a></small></p>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Model View Presenter</h2>
+            <img width="600px" src="assets/Model_View_Presenter_GUI_Design_Pattern.png" alt="Wikipedia's diagram of Model View Presenter" />
+            <p><small><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">
+  Wikipedia</a></small><br>Used by riot.js</p>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Model View ViewModel</h2>
+            <img src="assets/MVVMPattern.png" alt="Wikipedia's diagram of Model ViewModel" />
+            <p><small><a href="https://en.wikipedia.org/wiki/Model_View_ViewModel">
+  Wikipedia</a></small><br>Used by Knockout.js</p>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+
+          <section>
+            <h2>Drupal Drupal Drupal</h2>
+            <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
+            <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
+          </section>
+
+          <section>
+            <h2>Drupal Drupal Drupal</h2>
+            <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
+            <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
+          </section>
+
+
+
 
           <section>
             <h3>The time browsers take to process Web Components is nothing compared to that which brains take to understand them.</h3>
@@ -512,7 +569,7 @@ Here is where to put MV*, etc.
           </section>
 
           <section>
-            <h2>Nesting is still going to be the hard part to grok</h2>
+            <h2>Lesson: Nesting is still going to be the hard part to grok</h2>
             <aside class="notes">
             </aside>
           </section>
