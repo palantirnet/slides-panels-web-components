@@ -425,37 +425,97 @@ REST? We've been working on it!
             <h2>Lessons from Panels</h2>
           </section>
 
-
           <section>
             <h2>Lesson: Not all theme hooks require equal attention</h2>
           </section>
 
-        <section>
-          <h2>Drupal 7 theming:</h2>
-            <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again. </q><br>
-<a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
-John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a>
-        </section>
+          <section>
+            <h2>Drupal 7 theming:</h2>
+              <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again. </q><br>
+  <a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
+  John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a>
+          </section>
 
-        <section>
-          <h2>Where to start customizing Drupal markup?</h2>
-          <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
-          <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
-John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
+          <section>
+            <h2>Where to start customizing Drupal markup?</h2>
+            <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
+            <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
+  John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
 
             <aside class="notes">Each internal layer of Drupal is reflected in the markup<br> Separation of Concerns
-</aside>
+            </aside>
+          </section>
 
-        </section>
+          <section>
+            <h2>Where to start customizing Drupal markup?</h2>
+            <img src="assets/d7-theming.png" alt="The flow chart of Drupal 7 theming" />
+            <p><small><a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
+  John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a></small></p>
 
-
-
-
-
-
+            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br> Separation of Concerns
+            </aside>
           </section>
 
 
+
+          <section>
+          @todo, move up this lesson to be second???????????
+            <h2>Lesson: Separate names indicate separation of concerns</h2>
+            <aside class="notes">
+              Traditional Drupal encourages "overriding" the node template. What if you want something completely different?
+            </aside>
+          </section>
+
+          <section>
+            <h2>What is the name of the template used by article node teasers?</h2>
+            <h3>node--article--teaser.tpl.php</h3>
+            <aside class="notes">
+              That indicates a certain level of coupling. Not necessarily bad
+            </aside>
+          </section>
+
+          <section>
+            <h2>Panelizer gives you the option to make the article teaser's template be</h2>
+            <h3>the-design-component-name.tpl.php</h3>
+            <aside class="notes">
+              If we're going to pull in a 3rd party Web Component for the article teaser we can't expect it to be named "article--teaser"
+            </aside>
+          </section>
+
+          <section>
+            <h2>Lesson: “A good architecture <i>allows</i> you to defer critical decisions”</h2>
+<p><small><a href="http://blog.8thlight.com/uncle-bob/2011/11/22/Clean-Architecture.html">
+(Uncle) Bob Martin</a></small></p>
+
+            <aside class="notes">
+            Anecdote about breaking up home page<br>
+              The Drupal theme system is used in lots of different ways. theme_item_list vs. panels.<br>
+              Standardizing has huge benefits.<br>
+              <b>Ancedote about theming at the field instance level vs. the Field Collection entity level</b>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Lesson: Simple mental models help</h2>
+            <aside class="notes">
+Context, Configuration, Template<br>
+Here is where to put MV*, etc.
+            </aside>
+          </section>
+
+          <section>
+            <h3>The time browsers take to process Web Components is nothing compared to that which brains take to understand them.</h3>
+            <aside class="notes">
+              I mean this in the obvious literal sense. Also that fast computational performance is useless if we don't know how to use it.<br>
+              In Panels we have an example of how surface complexity blocks understanding and adoption. 
+            </aside>
+          </section>
+
+          <section>
+            <h2>Nesting is still going to be the hard part to grok</h2>
+            <aside class="notes">
+            </aside>
+          </section>
 
         </section>
 
