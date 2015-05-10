@@ -288,7 +288,6 @@ dist/
         <section>
           <section>
             <h2>What is Panels?</h2>
-            <img src="assets/colbert.png" alt="Screenshot of Stephen Colbert sitting at his fireplace." />
           </section>
 
           <section>
@@ -349,81 +348,74 @@ Common Interfaces
 
           <section>
             <h2>What do we have to show for it?</h2>
-
-Tree of vendor directory from composer
-
+<pre><code>
+vendor/
+├── autoload.php
+├── behat
+├── bin
+├── composer
+├── doctrine
+├── easyrdf
+├── egulias
+├── fabpot
+├── guzzlehttp
+├── masterminds
+├── mikey179
+├── phpunit
+├── psr
+├── react
+├── sdboyer
+├── sebastian
+├── symfony
+├── symfony-cmf
+├── twig
+└── zendframework
+</code></pre>
           </section>
-
-
-
 
           <section>
             <h2>And we're doing well on the front end</h2>
-Tree
+            <pre><code>
+assets/vendor/
+├── backbone
+├── ckeditor
+├── classList
+├── domready
+├── farbtastic
+├── html5shiv
+├── jquery
+├── jquery-form
+├── jquery-joyride
+├── jquery-once
+├── jquery-ui-touch-punch
+├── jquery.cookie
+├── jquery.ui
+├── matchMedia
+├── modernizr
+├── normalize-css
+├── picturefill
+└── underscore
+</code></pre>
           </section>
-
-
 
           <section>
             <h2>The Dependency Injection Container bridges between 3rd-party interfaces and Drupal's internals</h2>
-
 <q>a Dependency Injection Container (DIC) is simply an easier place to wire up what objects get passed to what objects.</q><br>
-
 <a href="http://www.palantir.net/blog/d8ftw-hacking-core-without-killing-kittens">Larry "Crell" Garfield</a>
           </section>
 
-        </section>
+
 
           <section>
-            <h2>Can we imagine wiring to 3rd-party markup</h2>
+            <h2>Can we imagine wiring to 3rd-party markup?</h2>
           </section>
 
           <section>
-            <h2>Can we share our admin toolbar with the world?</h2>
+            <h3>Can we share our admin toolbar with the world?</h3>
+
+            <h3>Could we replace our admin toolbar with one written outside of Drupal?</h3>
           </section>
-
-          <section>
-            <h2>Could we replace our admin toolbar with another one?</h2>
-          </section>
-
-
-
         </section>
-
-
-        <section>
-          <section>
-            <h2>Why are Web Components going to be a challenge for Drupal?</h2>
-
-            <aside class="notes">Not every wave in Web Development is particularly hard for Drupal.<br>
-HTTPS Everywhere? We can do that.<br>
-REST? We've been working on it!
-</aside>
-          </section>
-
-
-
-
-        <section>
-          <h2>The Way Drupal thinks of rendering is complicated</h2>
-          <img src="assets/theme-system.png" alt="The flow chart of Drupal's theme system flow" />
-          <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
-        </section>
-
-        <section>
-          <h2>In Drupal 8 too</h2>
-          <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
-          <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
-        </section>
-
-
-
-        </section>
-
-
-
-
-
 
         <section>
           <section>
@@ -455,7 +447,8 @@ REST? We've been working on it!
           <section>
             <h2>Panels priortizes some layers</h2>
             <img src="assets/d7-theming-panels.png" alt="The flow chart of Drupal 7 theming overlayed with Panels boxes" />
-            <aside class="notes">Each internal layer of Drupal is reflected in the markup<br>
+            <aside class="notes">You can debate endlessly whether a given html element should be coming out of a given theme hook or it's parent.<br>
+            Are you theming the Views row? Or the thing in the Row?<br>Whichever is the Panel. Whichever is the web component.
             </aside>
           </section>
 
@@ -472,9 +465,7 @@ REST? We've been working on it!
           </section>
 
           <section>
-          
             <h2>Lesson: Separate names indicate separation of concerns</h2>
-
           </section>
 
           <section>
@@ -557,9 +548,6 @@ Here is where to put MV*, etc.
             <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
           </section>
 
-
-
-
           <section>
             <h3>The time browsers take to process Web Components is nothing compared to that which brains take to understand them.</h3>
             <aside class="notes">
@@ -569,11 +557,12 @@ Here is where to put MV*, etc.
           </section>
 
           <section>
-            <h2>Lesson: Nesting is still going to be the hard part to grok</h2>
+            <h2>Lesson: Nesting is still going to be the hard part to understand</h2>
             <aside class="notes">
+              Easier if the concepts are the same at each layer.<br>
+
             </aside>
           </section>
-
         </section>
 
 
