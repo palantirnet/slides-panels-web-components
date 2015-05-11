@@ -283,7 +283,7 @@ dist/
           </section>
 
           <section>
-            <h2>@todo, Add a more complex web component example.</h2>
+            <h2>@todo, Add a more complex web component example. Make sure is highlights properties/interface concept</h2>
           </section>
         </section>
 
@@ -344,6 +344,8 @@ function render_a_panel($nodes_or_other_data, $name_of_panels_config) {
             </ul>
         </section>
 
+        </section>
+
         <section>
           <section>
             <h2>Why should we care about Web Components* ?</h2>
@@ -386,14 +388,37 @@ The way to be more productive is to <b>share more</b> code.</q><br>
 
 
           <section>
-            <h2>What caused the PHP renaissance?</h2>
+            <h2>What caused the PHP Renaissance?</h2>
 
-Class autoloading
-Github
-Namespaces
-The PHP Standards Group
-Composer
-Common Interfaces
+@todo, One is missing
+            <ul>
+              <li class="fragment">
+                Class autoloading
+              </li>
+              <li class="fragment">
+                Github
+              </li>
+              <li class="fragment">
+                Namespaces
+              </li>
+              <li class="fragment">
+                The PHP Standards Group
+              </li>
+              <li class="fragment">
+                Composer
+              </li>
+              <li class="fragment">
+                Common Interfaces
+              </li>
+            </ul>
+
+
+
+
+
+
+
+
 
 
 <a href="http://www.palantir.net/presentations/craftingcode2014-php-renaissance/#/11">Larry "Crell" Garfield</a>
@@ -452,21 +477,24 @@ assets/vendor/
           </section>
 
           <section>
+            <h3>We are playing out the Ship of Theseus thought experiment</h3>
+          </section>
+
+          <section>
+            <h3>In our markup, can we</h3>
+            <ul><li class="fragment">write less?</li>
+<li class="fragment">reuse more?</li>
+<li class="fragment">share more?</li></ul>
+          </section>
+
+          <section>
             <h2>The Dependency Injection Container bridges between 3rd-party interfaces and Drupal's internals</h2>
 <q>a Dependency Injection Container (DIC) is simply an easier place to wire up what objects get passed to what objects.</q><br>
 <a href="http://www.palantir.net/blog/d8ftw-hacking-core-without-killing-kittens">Larry "Crell" Garfield</a>
           </section>
 
-
-
           <section>
-            <h2>Can we imagine wiring to 3rd-party markup?</h2>
-          </section>
-
-          <section>
-            <h3>Can we share our admin toolbar with the world?</h3>
-
-            <h3>Could we replace our admin toolbar with one written outside of Drupal?</h3>
+            <h2>Panels does analogous wiring for Markup between source data and templates</h2>
           </section>
         </section>
 
@@ -622,12 +650,20 @@ Here is where to put MV*, etc.
           </section>
         </section>
 
-
         <section>
           <section>
             <q>As the Drupal community asks itself again<br> how it wants to <b>do</b> rendering, let's also ask <br>"how do we want to <b>think about</b> rendering?</q>
             <p><a href="http://palantir.net/blog/explaining-panels-why-i-use-panels">-me</a> 
 </p>
+
+Can we separate the thing that prints data at all from the thing that says how it gets printed?
+Is sharing our markup outside of Drupal something we even want to do?
+Does someone need to write a Web Component theme?
+How many Invented-Here parts of Drupal can we strip and still be Drupal?
+Which pattern do you see Drupal implementing now? (MVC, PAC, ADR)
+Which pattern do you want Drupal to use? 
+
+
           </section>
         </section>
 
