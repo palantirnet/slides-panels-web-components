@@ -158,7 +158,6 @@
             <h2>Defining the terms</h2>
           </section>
 
-
           <section>
             <h2>What are <br>Web Components?</h2>
             <q>...a W3C specification that allow for the creation of reusable widgets or components in web documents and web applications.</q>
@@ -213,23 +212,23 @@
             <h2>HTML5</h2>
 
             <audio controls>
+              <!-- @todo, use different mp3 -->
               <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
               <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
               <p>Your user agent does not support the HTML5 Audio element.</p>
             </audio>
 
             <pre><code class="html" data-trim>
-            <audio controls>
-              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
-              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
-              <p>Your user agent does not support the HTML5 Audio element.</p>
-            </audio>
+              <audio controls>
+                <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
+                <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+                <p>Your user agent does not support the HTML5 Audio element.</p>
+              </audio>
             </code></pre>
               <aside class="notes">After 10ish years of debate. Usage of HTML5 elements is normal.<br>
               Easier to imagine getting by without them.<br>
               Easier to customize.
               </aside>
-
           </section>
 
           <section>
@@ -241,14 +240,13 @@
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
 
             <aside class="notes">
-            You don't need them.<br>
-            Customization/Extension is built in.
-              </aside>
+              You don't need them.<br>
+              Customization/Extension is built in.
+            </aside>
           </section>
 
           <section>
             <h2>Separating the definition of an element from the usage</h2>
-
 <table>
   <tr>
     <td>
@@ -275,16 +273,20 @@ dist/
     </pre>
     </td>
     <td>
-                <pre><code class="nohighlight attribute" data-trim> 
-              <x-gif src="assets/plinko.gif"></x-gif>
-            </code></pre>
+<pre><code class="nohighlight attribute" data-trim> 
+<x-gif src="assets/plinko.gif"></x-gif>
+</code></pre>
     </td>
   </tr>
   <aside class="notes">Don't write code. Use Drupal.</aside>
 </table>
+          </section>
 
+          <section>
+            <h2>@todo, Add a more complex web component example.</h2>
           </section>
         </section>
+
         <section>
           <section>
             <h2>What is Panels?</h2>
@@ -301,22 +303,73 @@ dist/
 
           <section>
             <h2>Panels is a way to take data (Context)</h2>
+            @todo, add dump of a node object
           </section>
 
           <section>
             <h2>And get it ready for printing in a template</h2>
+            @todo, add layout plugin code. Left/right or illustated list item?
+
+            <aside class="notes">HOOK_THEME
+When I say that Panels is a UI on theme I mean that it takes the responsibility for figuring out how to get something into these variables. We've got a node object and a template file that simply prints Left and Right. Normally you would need to do a ton of preprocessing to make that work. Or you do that work before even calling theme().
+            </aside> 
           </section>
 
           <section>
             <h2>By passing the data through user defined configuration</h2>
+            @todo, dump of Panels export.
           </section>
-        </section>
 
+          <section>
+            <h2>Overly-simplified Panels Pseudo-code</h2>
+            <pre><code class="php" data-trim>
+function render_a_panel($nodes_or_other_data, $name_of_panels_config) {
+  // Each Panels layout plugin becomes a theme hook.
+  $name_of_theme_hook = $this->get_theme_hook_name($name_of_panels_config);
+  // Panels stringifies render arrays before passing to theme().
+  $printable_vars = $this->get_printable_vars($nodes_or_other_data, $name_of_panels_config);
+  // Dead simple insertion of variables into a template. 
+  return theme($name_of_theme_hook, $printable_vars);
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Panels can operate on multiple levels</h2>
+            <ul>
+              <li class="fragment">Panels Everywhere for the <code>page.tpl.php</code> level</li>
+              <li class="fragment">Page Manager for the <code>hook_menu()</code> level</li>
+              <li class="fragment">Panelizer for View Modes</li>
+              <li class="fragment">Mini Panels for Block level</li>
+            </ul>
+        </section>
 
         <section>
           <section>
             <h2>Why should we care about Web Components* ?</h2>
-            <p>*Or Angular, or React, or Ember, Marionette</p>
+            <ul>
+              <li class="fragment">
+                Or Angular
+              </li>
+              <li class="fragment">
+                React
+              </li>
+              <li class="fragment">
+                Ember
+              </li>
+              <li class="fragment">
+                Backbone + Marionette
+              </li>
+              <li class="fragment">
+                Riot
+              </li>
+              <li class="fragment">
+                Knockout
+              </li>
+              <li class="fragment">
+                Whatever was released during this session
+              </li>
+            </ul>
           </section>
 
           <section>
@@ -519,7 +572,7 @@ Here is where to put MV*, etc.
             <h2>Model View Presenter</h2>
             <img width="600px" src="assets/Model_View_Presenter_GUI_Design_Pattern.png" alt="Wikipedia's diagram of Model View Presenter" />
             <p><small><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">
-  Wikipedia</a></small><br>Used by riot.js</p>
+  Wikipedia</a></small><br>Used by riot.js and Backbone (kind of)</p>
 
             <aside class="notes">
             </aside>
@@ -535,17 +588,21 @@ Here is where to put MV*, etc.
             </aside>
           </section>
 
-
           <section>
             <h2>Drupal Drupal Drupal</h2>
+            <img src="assets/theme-system.png" alt="The flow chart of Drupal 7's theme system flow" />
+            <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
+          </section>
+          <section>
+            <h2>D8 Render Pipeline</h2>
             <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
             <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
           </section>
 
           <section>
-            <h2>Drupal Drupal Drupal</h2>
-            <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
-            <p><small><a href="https://www.drupal.org/developing/api/8/render/pipeline">The Drupal 8 Render Pipeline</a></small></p>
+            <h2>Backbone in D8</h2>
+            <img height="400px" src="assets/backbone.png" alt="A diagram of Backbone's flow" />
+            <p><small><a href="http://wimleers.com/talk-drupal-speaks/#/11/6">Wim Leers</a></small></p>
           </section>
 
           <section>
