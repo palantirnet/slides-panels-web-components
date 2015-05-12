@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Rendering HTML with Drupal: Past, Present and Future</title>
+    <title>What Panels can Teach us About Web Components</title>
 
     <meta name="author" content="Steve Persch">
 
@@ -282,6 +282,19 @@ dist/
 </table>
           </section>
 
+         <section>
+            <h2>Example from Chris Ruppel's Web Components proof of concept</h2>
+
+<pre><code class="php" data-trim>
+<flip-card axis="< ?php print $axis; ?>">
+  <front>< ? php print $front; ?></front>
+  <back>< ?php print $back; ?></back>
+</flip-card>
+</code></pre>
+          </section>
+
+
+
           <section>
             <h2>@todo, Add a more complex web component example. Make sure is highlights properties/interface concept</h2>
           </section>
@@ -309,6 +322,22 @@ dist/
           <section>
             <h2>And get it ready for printing in a template</h2>
             @todo, add layout plugin code. Left/right or illustated list item?
+
+
+<pre><code class="php" data-trim>
+<div class="panel-display panel-2col clearfix" <?php if (!empty($css_id)) { print "id="$css_id""; } ?>>
+  <div class="panel-panel panel-col-first">
+    <div class="inside"><?php print $content['left']; ?></div>
+  </div>
+  <div class="panel-panel panel-col-last">
+    <div class="inside"><?php print $content['right']; ?></div>
+  </div>
+</div> - See more at: http://palantir.net/blog/explaining-panels-overview-drupal-developers#sthash.wnW65YfL.dpuf
+</code></pre>
+
+// Where do we map? RenderElements
+// Web components in body fields?
+
 
             <aside class="notes">HOOK_THEME
 When I say that Panels is a UI on theme I mean that it takes the responsibility for figuring out how to get something into these variables. We've got a node object and a template file that simply prints Left and Right. Normally you would need to do a ton of preprocessing to make that work. Or you do that work before even calling theme().
@@ -617,6 +646,17 @@ Here is where to put MV*, etc.
           </section>
 
           <section>
+            <h2>Presentation Abstraction Control</h2>
+            <img src="assets/Pac-schema.jpg" alt="Wikipedia's diagram of Model ViewModel" />
+            <p><small><a href="http://en.wikipedia.org/wiki/Presentation%E2%80%93abstraction%E2%80%93control">
+  Wikipedia</a></small><br>Used by Drupal?</p>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+
+          <section>
             <h2>Drupal Drupal Drupal</h2>
             <img src="assets/theme-system.png" alt="The flow chart of Drupal 7's theme system flow" />
             <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
@@ -656,15 +696,22 @@ Here is where to put MV*, etc.
             <p><a href="http://palantir.net/blog/explaining-panels-why-i-use-panels">-me</a> 
 </p>
 
-Can we separate the thing that prints data at all from the thing that says how it gets printed?
-Is sharing our markup outside of Drupal something we even want to do?
-Does someone need to write a Web Component theme?
-How many Invented-Here parts of Drupal can we strip and still be Drupal?
-Which pattern do you see Drupal implementing now? (MVC, PAC, ADR)
-Which pattern do you want Drupal to use? 
+          </section>
 
+          <section>
+            <h2>Questions for conversation</h2>
+            <ul>
+              <li class="fragment">Can we separate the thing that prints data at all from the thing that says how it gets printed?</li>
+              <li class="fragment">Is sharing our markup outside of Drupal something we even want to do?</li>
+              <li class="fragment">Does someone need to write a Web Component theme?</li>
+              <li class="fragment">How many Invented-Here parts of Drupal can we strip and still be Drupal?</li>
+              <li class="fragment">Which pattern do you see Drupal implementing now? (MVC, PAC, ADR)</li>
+              <li class="fragment">Which pattern do you want Drupal to use?</li>
+            </ul>
 
           </section>
+
+
         </section>
 
 
