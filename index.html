@@ -283,7 +283,7 @@ dist/
           </section>
 
          <section>
-            <h2>Example from Chris Ruppel's Web Components proof of concept</h2>
+            <h2>Proof of Concept in Drupal</h2>
 
 <pre><code class="php" data-trim>
 <flip-card axis="< ?php print $axis; ?>">
@@ -291,6 +291,12 @@ dist/
   <back>< ?php print $back; ?></back>
 </flip-card>
 </code></pre>
+
+ <p><small><a href="http://cgit.drupalcode.org/polymer_flipcard/tree/theme/field--polymer-flipcard.tpl.php?h=7.x-1.x">Chris Ruppel</a></small></p>
+  <p><small><a href="http://rupl.github.io/flip-card/components/flip-card/demo.html">Web Component demo</a></small></p>
+
+
+
           </section>
 
 
@@ -337,6 +343,10 @@ dist/
 
 // Where do we map? RenderElements
 // Web components in body fields?
+// Use symfony diagram
+// Is View subscriber the layer to set design object? (View subscribers change the "shape")
+// hook_theme_suggestions_alter
+// ViewModels in D8?
 
 
             <aside class="notes">HOOK_THEME
@@ -346,7 +356,208 @@ When I say that Panels is a UI on theme I mean that it takes the responsibility 
 
           <section>
             <h2>By passing the data through user defined configuration</h2>
-            @todo, dump of Panels export.
+            
+
+<pre><code class="php" data-trim>
+
+
+
+$handler = new stdClass();
+$handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+$handler->api_version = 1;
+$handler->name = 'node_view_panel_context';
+$handler->task = 'node_view';
+$handler->subtask = '';
+$handler->handler = 'panel_context';
+$handler->weight = 1;
+$handler->conf = array(
+ 'title' => 'Person',
+ 'no_blocks' => 0,
+ 'pipeline' => 'standard',
+ 'body_classes_to_remove' => '',
+ 'body_classes_to_add' => '',
+ 'css_id' => '',
+ 'css' => '',
+ 'contexts' => array(),
+ 'relationships' => array(),
+ 'access' => array(
+ 'logic' => 'and',
+ 'plugins' => array(
+ 0 => array(
+ 'name' => 'node_type',
+ 'settings' => array(
+ 'type' => array(
+ 'person' => 'person',
+ ),
+ ),
+ 'context' => 'argument_entity_id:node_1',
+ 'not' => FALSE,
+ ),
+ ),
+ ),
+);
+$display = new panels_display();
+$display->layout = 'onecol';
+$display->layout_settings = array();
+$display->panel_settings = array(
+ 'style_settings' => array(
+ 'default' => NULL,
+ 'middle' => NULL,
+ ),
+);
+$display->cache = array();
+$display->title = '%node:title';
+$display->content = array();
+$display->panels = array();
+ $pane = new stdClass();
+ $pane->pid = 'new-1';
+ $pane->panel = 'middle';
+ $pane->type = 'custom';
+ $pane->subtype = 'custom';
+ $pane->shown = TRUE;
+ $pane->access = array(
+ 'plugins' => array(
+ 0 => array(
+ 'name' => 'entity_field_value:node:person:field_ref_term_designation',
+ 'settings' => array(
+ 'field_ref_term_designation' => array(
+ 'und' => array(
+ 0 => array(
+ 'tid' => '73',
+ ),
+ ),
+ ),
+ 'field_ref_term_designation_tid' => array(
+ 73 => '73',
+ 1 => NULL,
+ 2 => NULL,
+ 3 => NULL,
+ 72 => NULL,
+ ),
+ ),
+ 'context' => 'argument_entity_id:node_1',
+ 'not' => FALSE,
+ ),
+ ),
+ );
+ $pane->configuration = array(
+ 'admin_title' => 'Honorary Member',
+ 'title' => '',
+ 'body' => '<h3>Honorary Member</h3>
+',
+ 'format' => 'full_html',
+ 'substitute' => 0,
+ );
+ $pane->cache = array();
+ $pane->style = array(
+ 'settings' => NULL,
+ );
+ $pane->css = array();
+ $pane->extras = array();
+ $pane->position = 0;
+ $pane->locks = array();
+ $display->content['new-1'] = $pane;
+ $display->panels['middle'][0] = 'new-1';
+ $pane = new stdClass();
+ $pane->pid = 'new-2';
+ $pane->panel = 'middle';
+ $pane->type = 'node_content';
+ $pane->subtype = 'node_content';
+ $pane->shown = TRUE;
+ $pane->access = array();
+ $pane->configuration = array(
+ 'links' => 0,
+ 'no_extras' => 0,
+ 'override_title' => 1,
+ 'override_title_text' => '',
+ 'identifier' => '',
+ 'link' => 0,
+ 'leave_node_title' => 0,
+ 'build_mode' => 'full',
+ 'context' => 'argument_entity_id:node_1',
+ );
+ $pane->cache = array();
+ $pane->style = array(
+ 'settings' => NULL,
+ );
+ $pane->css = array();
+ $pane->extras = array();
+ $pane->position = 1;
+ $pane->locks = array();
+ $display->content['new-2'] = $pane;
+ $display->panels['middle'][1] = 'new-2';
+ $pane = new stdClass();
+ $pane->pid = 'new-3';
+ $pane->panel = 'middle';
+ $pane->type = 'views_panes';
+ $pane->subtype = 'videos_by_person-panel_pane_1';
+ $pane->shown = TRUE;
+ $pane->access = array();
+ $pane->configuration = array(
+ 'more_link' => 1,
+ 'use_pager' => 0,
+ 'pager_id' => '0',
+ 'items_per_page' => '3',
+ 'path' => 'node/%/videos',
+ 'context' => array(
+ 0 => 'argument_entity_id:node_1',
+ ),
+ 'override_title' => 1,
+ 'override_title_text' => 'Videos featuring %node:title',
+ );
+ $pane->cache = array();
+ $pane->style = array(
+ 'settings' => NULL,
+ );
+ $pane->css = array();
+ $pane->extras = array();
+ $pane->position = 2;
+ $pane->locks = array();
+ $display->content['new-3'] = $pane;
+ $display->panels['middle'][2] = 'new-3';
+ $pane = new stdClass();
+ $pane->pid = 'new-4';
+ $pane->panel = 'middle';
+ $pane->type = 'views_panes';
+ $pane->subtype = 'clips_by_person-panel_pane_1';
+ $pane->shown = TRUE;
+ $pane->access = array();
+ $pane->configuration = array(
+ 'more_link' => 1,
+ 'use_pager' => 0,
+ 'pager_id' => '0',
+ 'items_per_page' => '3',
+ 'path' => 'node/%/clips',
+ 'context' => array(
+ 0 => 'argument_entity_id:node_1',
+ ),
+ 'override_title' => 1,
+ 'override_title_text' => 'Podcast clips featuring %node:title',
+ );
+ $pane->cache = array();
+ $pane->style = array(
+ 'settings' => NULL,
+ );
+ $pane->css = array();
+ $pane->extras = array();
+ $pane->position = 3;
+ $pane->locks = array();
+ $display->content['new-4'] = $pane;
+ $display->panels['middle'][3] = 'new-4';
+$display->hide_title = PANELS_TITLE_FIXED;
+$display->title_pane = '0';
+$handler->conf['display'] = $display;
+
+
+
+</code></pre>
+
+
+
+
+
+
+
           </section>
 
           <section>
