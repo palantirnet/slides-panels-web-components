@@ -212,16 +212,13 @@
             <h2>HTML5</h2>
 
             <audio controls>
-<!-- @todo, use different mp3 -->
-<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
-<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+<source src="assets/inception.mp3" type='audio/mp3' />
 <p>Your user agent does not support the HTML5 Audio element.</p>
             </audio>
 
             <pre><code class="html" data-trim>
-              <audio controls>
-  <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
-  <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+<audio controls>
+<source src="assets/inception.mp3" type='audio/mp3' />
   <p>Your user agent does not support the HTML5 Audio element.</p>
 </audio>
             </code></pre>
@@ -238,7 +235,6 @@
       		    <x-gif src="assets/plinko.gif" ping-pong ></x-gif>
       			</code></pre>
 
-            
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
 
             <aside class="notes">
@@ -296,16 +292,9 @@ dist/
 
  <p><small><a href="http://cgit.drupalcode.org/polymer_flipcard/tree/theme/field--polymer-flipcard.tpl.php?h=7.x-1.x">Chris Ruppel</a></small></p>
   <p><small><a href="http://rupl.github.io/flip-card/components/flip-card/demo.html">Web Component demo</a></small></p>
-
-
-
           </section>
 
 
-
-          <section>
-            <h2>@todo, Add a more complex web component example. Make sure is highlights properties/interface concept</h2>
-          </section>
         </section>
 
         <section>
@@ -752,6 +741,9 @@ assets/vendor/
 
           <section>
             <h3>We are playing out the Ship of Theseus thought experiment</h3>
+            <img  width="50%" src="assets/ship-of-theseus.jpg" alt="Theseus' Ship" />
+            <p><small><a href="https://www.youtube.com/watch?v=GQJB7DZyqIE">Ship of Theseus video</a></small></p>
+
           </section>
 
           <section>
@@ -793,6 +785,10 @@ assets/vendor/
               <q>One of the things that makes Drupal theming so powerful is its granularity. Each piece of content is handled separately as it's passed through the theming system. Each bit of data is themed individually, then combined into ever-larger chunks. At each step in the aggregation process, it's themed again.</q><br>
   <a href="https://www.packtpub.com/books/content/drupal-7-module-development-drupals-theme-layer">
   John Albin Wikins in Drupal 7 module development<br>(Packt Publishing)</a>
+          </section>
+
+          <section>
+            <h3>With great power comes great responsibility</h3>
           </section>
 
           <section>
@@ -935,12 +931,40 @@ Here is where to put MV*, etc.
           </section>
 
           <section>
-            <h2>Lesson: Nesting is still going to be the hard part to understand</h2>
+            <h2>Lesson: Nesting is hard</h2>
+            <img src="assets/inception.jpg" alt="Inception movie poster" />
             <aside class="notes">
               Easier if the concepts are the same at each layer.<br>
-
             </aside>
           </section>
+
+
+
+          <section>
+            <h2>Lesson: Defining a Component requires dependencies / properties</h2>
+
+
+<pre ><code class="php" data-trim style="overflow:scroll;" >
+$plugin = array(
+  'title' => t('Three column 33/34/33 stacked'),
+  'category' => t('Columns: 3'),
+  'icon' => 'threecol_33_34_33_stacked.png',
+  'theme' => 'panels_threecol_33_34_33_stacked',
+  'css' => 'threecol_33_34_33_stacked.css',
+  'regions' => array(
+    'top' => t('Top'),
+    'left' => t('Left side'),
+    'middle' => t('Middle column'),
+    'right' => t('Right side'),
+    'bottom' => t('Bottom')
+  ),
+);
+</code></pre>
+<p><a href="http://cgit.drupalcode.org/panels/tree/plugins/layouts/threecol_33_34_33_stacked/threecol_33_34_33_stacked.inc?id=26c478e62e0177245aeab8d49448400d2eb688cd">Panels Plugin definition</a> 
+</p>
+
+          </section>
+
         </section>
 
         <section>
