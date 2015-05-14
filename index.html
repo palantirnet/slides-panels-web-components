@@ -595,10 +595,13 @@ $handler->conf['display'] = $display;
             <h2>Overly-simplified Panels Pseudo-code</h2>
             <pre><code class="php" data-trim>
 function render_a_panel($nodes_or_other_data, $name_of_panels_config) {
+
   // Each Panels layout plugin becomes a theme hook.
   $name_of_theme_hook = $this->get_theme_hook_name($name_of_panels_config);
+
   // Panels stringifies render arrays before passing to theme().
   $printable_vars = $this->get_printable_vars($nodes_or_other_data, $name_of_panels_config);
+
   // Dead simple insertion of variables into a template. 
   return theme($name_of_theme_hook, $printable_vars);
 }
