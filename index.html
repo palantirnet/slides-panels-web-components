@@ -212,18 +212,18 @@
             <h2>HTML5</h2>
 
             <audio controls>
-              <!-- @todo, use different mp3 -->
-              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
-              <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
-              <p>Your user agent does not support the HTML5 Audio element.</p>
+<!-- @todo, use different mp3 -->
+<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
+<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+<p>Your user agent does not support the HTML5 Audio element.</p>
             </audio>
 
             <pre><code class="html" data-trim>
               <audio controls>
-                <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
-                <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
-                <p>Your user agent does not support the HTML5 Audio element.</p>
-              </audio>
+  <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4' />
+  <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis' />
+  <p>Your user agent does not support the HTML5 Audio element.</p>
+</audio>
             </code></pre>
               <aside class="notes">After 10ish years of debate. Usage of HTML5 elements is normal.<br>
               Easier to imagine getting by without them.<br>
@@ -234,9 +234,11 @@
           <section>
             <h2>After HTML5:<br>Web Components</h2>
 
-      			<pre><code class="nohighlight attribute" data-trim> 
+      			<pre><code class="" nohighlight  data-trim> 
       		    <x-gif src="assets/plinko.gif" ping-pong ></x-gif>
       			</code></pre>
+
+            
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
 
             <aside class="notes">
@@ -322,24 +324,72 @@ dist/
 
           <section>
             <h2>Panels is a way to take data (Context)</h2>
-            @todo, add dump of a node object
+<pre><code class="php" data-trim>
+
+
+
+
+
+    stdClass Object
+(
+    [vid] => 1
+    [uid] => 1
+    [title] => This is an Article
+    [log] => 
+    [status] => 1
+    [comment] => 0
+    [promote] => 1
+    [sticky] => 0
+    [nid] => 1
+    [type] => article
+    [language] => und
+    [created] => 1431529567
+    [changed] => 1431529567
+    [tnid] => 0
+    [translate] => 0
+    [revision_timestamp] => 1431529567
+    [revision_uid] => 1
+    [body] => Array
+        (
+            [und] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => With a Body field!
+                            [summary] => 
+                            [format] => plain_text
+                            [safe_value] => <p>With a Body field!</p>
+
+                            [safe_summary] => 
+                        )
+
+                )
+
+        )
+
+    [name] => admin
+    [picture] => 0
+    [data] => b:0;
+    [entity_view_prepared] => 1
+
+
+</code></pre>
           </section>
 
           <section>
             <h2>And get it ready for printing in a template</h2>
-            @todo, add layout plugin code. Left/right or illustated list item?
-
-
 <pre><code class="php" data-trim>
-<div class="panel-display panel-2col clearfix" <?php if (!empty($css_id)) { print "id="$css_id""; } ?>>
+<div class="panel-display panel-2col clearfix">
   <div class="panel-panel panel-col-first">
-    <div class="inside"><?php print $content['left']; ?></div>
+    <div class="inside">< ?php print $content['left']; ?></div>
   </div>
   <div class="panel-panel panel-col-last">
-    <div class="inside"><?php print $content['right']; ?></div>
+    <div class="inside">< ?php print $content['right']; ?></div>
   </div>
-</div> - See more at: http://palantir.net/blog/explaining-panels-overview-drupal-developers#sthash.wnW65YfL.dpuf
+</div>
 </code></pre>
+
+<!-- Notes from talking with Wim/Joel
 
 // Where do we map? RenderElements
 // Web components in body fields?
@@ -347,6 +397,9 @@ dist/
 // Is View subscriber the layer to set design object? (View subscribers change the "shape")
 // hook_theme_suggestions_alter
 // ViewModels in D8?
+
+-->
+
 
 
             <aside class="notes">HOOK_THEME
@@ -358,10 +411,7 @@ When I say that Panels is a UI on theme I mean that it takes the responsibility 
             <h2>By passing the data through user defined configuration</h2>
             
 
-<pre><code class="php" data-trim>
-
-
-
+<pre ><code class="php" data-trim style="height:400px; overflow:scroll;" >
 $handler = new stdClass();
 $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
 $handler->api_version = 1;
@@ -548,14 +598,7 @@ $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = '0';
 $handler->conf['display'] = $display;
 
-
-
 </code></pre>
-
-
-
-
-
 
 
           </section>
@@ -630,7 +673,6 @@ The way to be more productive is to <b>share more</b> code.</q><br>
           <section>
             <h2>What caused the PHP Renaissance?</h2>
 
-@todo, One is missing
             <ul>
               <li class="fragment">
                 Class autoloading
@@ -653,15 +695,7 @@ The way to be more productive is to <b>share more</b> code.</q><br>
             </ul>
 
 
-
-
-
-
-
-
-
-
-<a href="http://www.palantir.net/presentations/craftingcode2014-php-renaissance/#/11">Larry "Crell" Garfield</a>
+<p><a href="http://www.palantir.net/presentations/craftingcode2014-php-renaissance/#/11">Larry "Crell" Garfield</a></p>
           </section>
 
           <section>
@@ -722,9 +756,16 @@ assets/vendor/
 
           <section>
             <h3>In our markup, can we</h3>
-            <ul><li class="fragment">write less?</li>
-<li class="fragment">reuse more?</li>
-<li class="fragment">share more?</li></ul>
+            <ul>
+              <li class="fragment">write less?
+                <ul><li class="fragment">Yes (Thanks Twig!)</li></ul>
+              </li>
+              <li class="fragment">reuse more?
+                <ul><li class="fragment">Yes (Stay for John's Core Conversation)</li></ul>
+              </li>
+              <li class="fragment">Share more?
+                <ul><li class="fragment">With the outside world?</li></ul>
+              </li></ul>
           </section>
 
           <section>
@@ -872,6 +913,7 @@ Here is where to put MV*, etc.
             <img src="assets/theme-system.png" alt="The flow chart of Drupal 7's theme system flow" />
             <p><small><a href="http://john.albin.net/drupal/arrays-of-doom">Diagram from John Albin Wilkins</a></small></p>
           </section>
+
           <section>
             <h2>D8 Render Pipeline</h2>
             <img height="400px" src="assets/d8_render_pipeline.svg" alt="The flow chart Drupal 8's render pipeline" />
@@ -879,9 +921,9 @@ Here is where to put MV*, etc.
           </section>
 
           <section>
-            <h2>Backbone in D8</h2>
-            <img height="400px" src="assets/backbone.png" alt="A diagram of Backbone's flow" />
-            <p><small><a href="http://wimleers.com/talk-drupal-speaks/#/11/6">Wim Leers</a></small></p>
+            <h2>Symfony HTTP Kernel</h2>
+            <img height="400px" src="assets/10-kernel-view.png" alt="A diagram of the Symfony's flow from Request to Response" />
+            <p><small><a href="http://symfony.com/doc/current/components/http_kernel/introduction.html">Symfony Documentation</a></small></p>
           </section>
 
           <section>
@@ -918,6 +960,7 @@ Here is where to put MV*, etc.
               <li class="fragment">How many Invented-Here parts of Drupal can we strip and still be Drupal?</li>
               <li class="fragment">Which pattern do you see Drupal implementing now? (MVC, PAC, ADR)</li>
               <li class="fragment">Which pattern do you want Drupal to use?</li>
+              <li class="fragment">Which part of the D8 render pipeline do you expect to think about most?</li>
             </ul>
 
           </section>
