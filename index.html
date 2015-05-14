@@ -165,11 +165,6 @@
           </section>
 
           <section>
-            <h2>Side note: What's a "Design Component"?</h2>
-            <aside class="notes"></aside>
-          </section>          
-
-          <section>
             <h2>An (extremely) abbreviated history of HTML</h2>
           </section>
 
@@ -218,7 +213,7 @@
 
             <pre><code class="html" data-trim>
 <audio controls>
-<source src="assets/inception.mp3" type='audio/mp3' />
+  <source src="assets/inception.mp3" type='audio/mp3' />
   <p>Your user agent does not support the HTML5 Audio element.</p>
 </audio>
             </code></pre>
@@ -236,6 +231,10 @@
       			</code></pre>
 
             <x-gif src="assets/plinko.gif" ping-pong></x-gif>
+
+
+ <p><small><a href="https://github.com/geelen/x-gif">X-Gif Web Component</a></small></p>
+
 
             <aside class="notes">
               You don't need them.<br>
@@ -938,11 +937,8 @@ Here is where to put MV*, etc.
             </aside>
           </section>
 
-
-
           <section>
-            <h2>Lesson: Defining a Component requires dependencies / properties</h2>
-
+            <h2>Lesson: Define dependencies / properties</h2>
 
 <pre ><code class="php" data-trim style="overflow:scroll;" >
 $plugin = array(
